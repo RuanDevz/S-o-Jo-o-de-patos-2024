@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Rockwell';
+  src: url('./assets/FONTE/Rockwell.ttc')format('truetype');
+}
+body{
+  background-image: url('./assets/Background/Background.png');
+}
