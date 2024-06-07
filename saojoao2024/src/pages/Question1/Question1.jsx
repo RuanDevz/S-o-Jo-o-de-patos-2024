@@ -12,6 +12,12 @@ const Question1 = () => {
 
   const [input, setInput] = useState('')
   const {setError, error, feedbacks, setFeedbacks} = useContext(Context)
+  
+
+  window.history.pushState(null, "", window.location.href);
+  window.onpopstate = function () {
+  window.history.pushState(null, "", window.location.href);
+  };
 
   const handleClick = () => {
     if (input.length === 0) {
@@ -30,7 +36,7 @@ const Question1 = () => {
   };
   
   return (
-    <div>
+    <div className='font-rockwell'>
         <header className='flex justify-center items-center mt-28'>
             <Logo/>
         </header>
@@ -38,7 +44,7 @@ const Question1 = () => {
             <h1 className='text-white text-2xl font-bold py-10'>Qual estado você mora ?</h1>
             <Input onChange={(e) => setInput(e.target.value)} value={input} type='text' placeholder='Digite aqui...'/>
             <div className='mt-20'>
-            <Button onClick={handleClick}>PROXIMA PERGUNTA >>></Button>
+            <Button onClick={handleClick}>PROXIMA PERGUNTA &gt;&gt;&gt; </Button>
             <div className='flex justify-center items-center'>
             <Error />
             </div>

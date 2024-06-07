@@ -1,20 +1,46 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import Context from '../../Context/Context';
+import Error from '../../components/Error/Error'
 
 const Question7 = () => {
 
     const [option, setOption] = useState('')
 
-    const handleOptionSelected = (e) =>{
-        setOption(e.target.value)
+    window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
+
+    const navigate = useNavigate()
+
+    const {setError, error, feedbacks, setFeedbacks} = useContext(Context)
+
+    const handleOptionSelected = (event) =>{
+        setOption(event)
+    }
+
+    const handleclick = () =>{
+      if(!option){
+        setError('Preencha o campo!')
+        setTimeout(() => {
+         setError('')
+         return
+        }, 3000);
+      }else{
+        feedbacks.push(option)
+        setFeedbacks(feedbacks)
+        console.log(feedbacks)
+        navigate('/question8')
+      }
     }
 
 
   return (
-    <div>
+    <div className='font-rockwell'>
             <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>
@@ -28,7 +54,7 @@ const Question7 = () => {
                 id='ATRAÇÕES'
                 value='ATRAÇÕES'
                 checked={option === 'ATRAÇÕES'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('ATRAÇÕES')}
               />
               <span>ATRAÇÕES</span>
             </label>
@@ -40,7 +66,7 @@ const Question7 = () => {
                 id='ESTRUTURAS'
                 value='ESTRUTURAS'
                 checked={option === 'ESTRUTURAS'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('ESTRUTURAS')}
               />
               <span>ESTRUTURAS</span>
             </label>
@@ -52,7 +78,7 @@ const Question7 = () => {
                 id='ATIVAÇÕES'
                 value='ATIVAÇÕES'
                 checked={option === 'ATIVAÇÕES'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('ATIVAÇÕES')}
               />
               <span>ATIVAÇÕES</span>
             </label>
@@ -63,8 +89,8 @@ const Question7 = () => {
                 type='checkbox'
                 id='ORGANIZAÇÃO'
                 value='ORGANIZAÇÃO'
-                checked={option === '4ORGANIZAÇÃO'}
-                onChange={handleOptionSelected}
+                checked={option === 'ORGANIZAÇÃO'}
+                onChange={() => handleOptionSelected('ORGANIZAÇÃO')}
               />
               <span>ORGANIZAÇÃO</span>
             </label>
@@ -76,7 +102,7 @@ const Question7 = () => {
                 id='LIMPEZA'
                 value='LIMPEZA'
                 checked={option === 'LIMPEZA'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('LIMPEZA')}
               />
               <span>LIMPEZA</span>
             </label>
@@ -88,7 +114,7 @@ const Question7 = () => {
                 id='SEGURANÇA'
                 value='SEGURANÇA'
                 checked={option === 'SEGURANÇA'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('SEGURANÇA')}
               />
               <span>SEGURANÇA</span>
             </label>
@@ -100,7 +126,7 @@ const Question7 = () => {
                 id='BOMBEIROS/SAMU'
                 value='BOMBEIROS/SAMU'
                 checked={option === 'BOMBEIROS/SAMU'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('BOMBEIROS/SAMU')}
               />
               <span>BOMBEIROS/SAMU</span>
             </label>
@@ -112,7 +138,7 @@ const Question7 = () => {
                 id='BARRACAS'
                 value='BARRACAS,AMBULANTES E BARES'
                 checked={option === 'BARRACAS,AMBULANTES E BARES'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('BARRACAS,AMBULANTES E BARES')}
               />
               <span>BARRACAS,AMBULANTES E BARES</span>
             </label>
@@ -124,7 +150,7 @@ const Question7 = () => {
                 id='CENOGRAFIA'
                 value='CENOGRAFIA'
                 checked={option === 'CENOGRAFIA'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('CENOGRAFIA')}
               />
               <span>CENOGRAFIA</span>
             </label>
@@ -136,7 +162,7 @@ const Question7 = () => {
                 id='ILUMINAÇÃO'
                 value='ILUMINAÇÃO'
                 checked={option === 'ILUMINAÇÃO'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('ILUMINAÇÃO')}
               />
               <span>ILUMINAÇÃO</span>
             </label>
@@ -148,7 +174,7 @@ const Question7 = () => {
                 id='SOMDOPALCO'
                 value='SOM DO PALCO'
                 checked={option === 'SOM DO PALCO'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('SOM DO PALCO')}
               />
               <span>SOM DO PALCO</span>
             </label>
@@ -160,7 +186,7 @@ const Question7 = () => {
                 id='ACESSOS'
                 value='ACESSOS (ENTRADAS)'
                 checked={option === 'ACESSOS (ENTRADAS)'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('ACESSOS (ENTRADAS)')}
               />
               <span>ACESSOS (ENTRADAS)</span>
             </label>
@@ -172,7 +198,7 @@ const Question7 = () => {
                 id='BANHEIROS'
                 value='BANHEIROS'
                 checked={option === 'BANHEIROS'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('BANHEIROS')}
               />
               <span>BANHEIROS</span>
             </label>
@@ -180,7 +206,10 @@ const Question7 = () => {
         </section>
       </main>
       <div className='flex justify-center items-center'>
-        <Button>PROXIMA PERGUNTA >>></Button>
+        <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
+      </div>
+      <div className='flex justify-center items-center'>
+        <Error/>
       </div>
     </div>
   )

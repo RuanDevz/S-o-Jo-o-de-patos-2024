@@ -7,17 +7,21 @@ import Context from '../../Context/Context';
 import Error from '../../components/Error/Error';
 
 const Start = () => {
+window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
+
+
   const [telefone, setTelefone] = useState('');
-  const {error, setError, feedbacks, setFeedbacks} = useContext(Context);
+  const { error, setError, feedbacks, setFeedbacks } = useContext(Context);
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     let valor = e.target.value;
-    
-
     valor = valor.replace(/\D/g, '');
-    
+
     let formattedValue = '';
     if (valor.length > 0) {
       formattedValue = `(${valor.slice(0, 2)}) ${valor.slice(2, 3)} ${valor.slice(3, 7)}`;
@@ -27,11 +31,6 @@ const Start = () => {
     }
 
     setTelefone(formattedValue);
-    if (formattedValue.length === 14) {
-      setTelefoneValido(true);
-    } else {
-      setTelefoneValido(false);
-    }
   };
 
   const handleClick = () => {
@@ -42,10 +41,22 @@ const Start = () => {
       }, 3000);
       return;
     }
-    feedbacks.push(telefone)
-    setFeedbacks(feedbacks)
-    console.log(feedbacks)
+
+    const currentDate = new Date();
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const year = currentDate.getFullYear();
+    const hours = String(currentDate.getHours()).padStart(2, '0');
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+
+    const formattedDate = `${day}/${month}/${year}`;
+    const formattedTime = `${hours}:${minutes}`;
+
+    const DataAndTime = `${formattedDate} - ${formattedTime}`
+
+    const feedbackWithNumber = telefone;
     
+    setFeedbacks([...feedbacks, DataAndTime, feedbackWithNumber]);
     navigate('/question1');
   };
 
@@ -64,7 +75,7 @@ const Start = () => {
         <p className='text-white font-extralight tracking-widest pb-3 font-rockwell'>DIGITE SEU NÚMERO DE CONTATO</p>
         <div className='mb-4'>
           <Input
-            max='14' 
+            max='14'
             type='text'
             placeholder='(99) 9 9999-9999'
             value={telefone}
@@ -72,7 +83,7 @@ const Start = () => {
           />
         </div>
         <button onClick={handleClick} className='bg-Pink p-3 text-white rounded-3xl border-4 border-white text-2xl w-40'>INICIAR</button>
-        <Error/>
+        <Error />
       </div>
     </div>
   );

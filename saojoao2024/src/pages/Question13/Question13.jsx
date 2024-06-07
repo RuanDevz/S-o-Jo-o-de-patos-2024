@@ -1,14 +1,41 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import Error from '../../components/Error/Error';
+import Context from '../../Context/Context';
 
 const Question13 = () => {
+
+window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
+
     const [nota, setNota] = useState(null)
 
-    const handleNotaSelected = (e) =>{
-        setNota(e.target.value)
+    const handleNotaSelected = (event) =>{
+        setNota(event)
+    }
+
+    const navigate = useNavigate()
+
+    const {setError, feedbacks, setFeedbacks} = useContext(Context)
+  
+    const handleclick = () =>{
+      if(!nota){
+        setError('Preencha o campo!')
+        setTimeout(() => {
+         setError('')
+         return
+        }, 3000);
+      }else{
+        feedbacks.push(nota)
+        setFeedbacks(feedbacks)
+        console.log(feedbacks)
+        navigate('/question14')
+      }
     }
 
 
@@ -28,7 +55,7 @@ const Question13 = () => {
                 id='one'
                 value='1'
                 checked={nota === '1'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('1')}
               />
               <span>1</span>
             </label>
@@ -40,7 +67,7 @@ const Question13 = () => {
                 id='two'
                 value='2'
                 checked={nota === '2'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('2')}
               />
               <span>2</span>
             </label>
@@ -52,7 +79,7 @@ const Question13 = () => {
                 id='three'
                 value='3'
                 checked={nota === '3'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('3')}
               />
               <span>3</span>
             </label>
@@ -64,7 +91,7 @@ const Question13 = () => {
                 id='four'
                 value='4'
                 checked={nota === '4'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('4')}
               />
               <span>4</span>
             </label>
@@ -76,7 +103,7 @@ const Question13 = () => {
                 id='five'
                 value='5'
                 checked={nota === '5'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('5')}
               />
               <span>5</span>
             </label>
@@ -84,7 +111,10 @@ const Question13 = () => {
         </section>
       </main>
       <div className='flex justify-center items-center'>
-        <Button>PROXIMA PERGUNTA >>></Button>
+        <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
+      </div>
+      <div className='flex justify-center items-center'>
+        <Error/>
       </div>
     </div>
   )

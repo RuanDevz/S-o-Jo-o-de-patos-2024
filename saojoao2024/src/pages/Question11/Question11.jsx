@@ -1,20 +1,40 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
+import Context from '../../Context/Context';
+import Error from '../../components/Error/Error';
 
 const Question11 = () => {
+
+window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
 
     const [option, setOption] = useState(null);
     const navigate = useNavigate()
   
     const handleOptionSelection = (event) => {
-        setOption(event.target.value);
+        setOption(event);
     };
+
+    const {setError, feedbacks, setFeedbacks} = useContext(Context)
   
     const handleclick = () =>{
-      navigate('/question4')
+      if(!option){
+        setError('Preencha o campo!')
+        setTimeout(() => {
+         setError('')
+         return
+        }, 3000);
+      }else{
+        feedbacks.push(option)
+        setFeedbacks(feedbacks)
+        console.log(feedbacks)
+        navigate('/question12')
+      }
     }
 
   return (
@@ -33,7 +53,7 @@ const Question11 = () => {
                 id='COMCERTEZAVOLTO'
                 value='COM CERTEZA VOLTO'
                 checked={option === 'COM CERTEZA VOLTO'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('COM CERTEZA VOLTO')}
               />
               <span>COM CERTEZA VOLTO</span>
             </label>
@@ -45,7 +65,7 @@ const Question11 = () => {
                 id='VOLTOELEVOAMIGOS'
                 value='VOLTO E LEVO AMIGOS'
                 checked={option === 'VOLTO E LEVO AMIGOS'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('VOLTO E LEVO AMIGOS')}
               />
               <span>VOLTO E LEVO AMIGOS</span>
             </label>
@@ -57,7 +77,7 @@ const Question11 = () => {
                 id='NAOVOLTO'
                 value='NÃO VOLTO'
                 checked={option === 'NÃO VOLTO'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('NÃO VOLTO')}
               />
               <span>NÃO VOLTO</span>
             </label>
@@ -69,7 +89,7 @@ const Question11 = () => {
                 id='AINDATENHODUVIDAS'
                 value='AINDA TENHO DÚVIDAS'
                 checked={option === 'AINDA TENHO DÚVIDAS'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('AINDA TENHO DÚVIDAS')}
               />
               <span>AINDA TENHO DÚVIDAS</span>
             </label>
@@ -77,7 +97,10 @@ const Question11 = () => {
         </section>
       </main>
       <div className='flex justify-center items-center'>
-      <Button onClick={handleclick}>PROXIMA PERGUNTA >>></Button>
+      <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
+      </div>
+      <div className='flex justify-center items-center'>
+        <Error/>
       </div>
     </div>
   )

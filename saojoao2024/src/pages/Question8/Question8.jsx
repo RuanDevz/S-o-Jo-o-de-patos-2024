@@ -1,19 +1,46 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
+import Error from '../../components/Error/Error'
 import { useNavigate } from 'react-router-dom';
+import Context from '../../Context/Context';
 
 const Question8 = () => {
 
+  window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
+
+
     const [nota, setNota] = useState(null)
 
-    const handleNotaSelected = (e) =>{
-        setNota(e.target.value)
+    const {setError, feedbacks, setFeedbacks} = useContext(Context)
+    
+    const navigate = useNavigate()
+
+    const handleNotaSelected = (event) =>{
+        setNota(event)
+    }
+
+    const handleclick = () =>{
+      if(!nota){
+        setError('Preencha o campo!')
+        setTimeout(() => {
+         setError('')
+         return
+        }, 3000);
+      }else{
+        feedbacks.push(nota)
+        setFeedbacks(feedbacks)
+        console.log(feedbacks)
+        navigate('/question9')
+      }
     }
 
   return (
-    <div>
+    <div className='font-rockwell'>
         <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>
@@ -27,7 +54,7 @@ const Question8 = () => {
                 id='gosteimuito'
                 value='GOSTEI MUITO'
                 checked={nota === 'GOSTEI MUITO'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('GOSTEI MUITO')}
               />
               <span>GOSTEI MUITO</span>
             </label>
@@ -39,7 +66,7 @@ const Question8 = () => {
                 id='gostei'
                 value='GOSTEI'
                 checked={nota === 'GOSTEI'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('GOSTEI')}
               />
               <span>GOSTEI</span>
             </label>
@@ -51,7 +78,7 @@ const Question8 = () => {
                 id='indiferente'
                 value='INDIFERENTE'
                 checked={nota === 'INDIFERENTE'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('INDIFERENTE')}
               />
               <span>INDIFERENTE</span>
             </label>
@@ -63,7 +90,7 @@ const Question8 = () => {
                 id='poderiamelhorar'
                 value='PODERERIA MELHORAR'
                 checked={nota === 'PODERERIA MELHORAR'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('PODERERIA MELHORAR')}
               />
               <span>PODERERIA MELHORAR</span>
             </label>
@@ -75,7 +102,7 @@ const Question8 = () => {
                 id='naogostei'
                 value='NÃO GOSTEI'
                 checked={nota === 'NÃO GOSTEI'}
-                onChange={handleNotaSelected}
+                onChange={() => handleNotaSelected('NÃO GOSTEI')}
               />
               <span>NÃO GOSTEI</span>
             </label>
@@ -83,7 +110,10 @@ const Question8 = () => {
         </section>
       </main>
       <div className='flex justify-center items-center'>
-        <Button>PROXIMA PERGUNTA >>></Button>
+        <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt; </Button>
+      </div>
+      <div className='flex justify-center items-center'>
+        <Error/>
       </div>
     </div>
   )

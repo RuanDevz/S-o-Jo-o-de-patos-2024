@@ -1,15 +1,40 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import Context from '../../Context/Context';
+import Error from '../../components/Error/Error';
 
 const Question15 = () => {
 
-    const [option, setOption] = useState('')
+  window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
 
-    const handleOptionSelected = (e) =>{
-        setOption(e.target.value)
+
+    const [option, setOption] = useState('')
+    const navigate = useNavigate()
+    const {setError, feedbacks, setFeedbacks} = useContext(Context)
+
+    const handleOptionSelected = (event) =>{
+        setOption(event)
+    }
+
+    const handleclick = () =>{
+      if (!option) {
+        setError('Preencha o campo!');
+        setTimeout(() => {
+          setError('');
+        }, 3000);
+        return;
+      }else{
+        feedbacks.push(option)
+        setFeedbacks(feedbacks)
+        console.log(feedbacks)
+        navigate('/question16')
+      }
     }
 
   return (
@@ -27,7 +52,7 @@ const Question15 = () => {
                 id='NATTAN'
                 value='NATTAN'
                 checked={option === 'NATTAN'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('NATTAN')}
               />
               <span>NATTAN</span>
             </label>
@@ -39,7 +64,7 @@ const Question15 = () => {
                 id='XAND AVIÃO'
                 value='XAND AVIÃO'
                 checked={option === 'XAND AVIÃO'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('XAND AVIÃO')}
               />
               <span>XAND AVIÃO</span>
             </label>
@@ -51,7 +76,7 @@ const Question15 = () => {
                 id='GUSTAVO LIMA'
                 value='GUSTAVO LIMA'
                 checked={option === 'GUSTAVO LIMA'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('GUSTAVO LIMA')}
               />
               <span>GUSTAVO LIMA</span>
             </label>
@@ -63,7 +88,7 @@ const Question15 = () => {
                 id='BELL MARQUES'
                 value='BELL MARQUES'
                 checked={option === '4BELL MARQUES'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('4BELL MARQUES')}
               />
               <span>BELL MARQUES</span>
             </label>
@@ -75,7 +100,7 @@ const Question15 = () => {
                 id='MICHELLE ANDRADE'
                 value='MICHELLE ANDRADE'
                 checked={option === 'MICHELLE ANDRADE'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('MICHELLE ANDRADE')}
               />
               <span>MICHELLE ANDRADE</span>
             </label>
@@ -87,7 +112,7 @@ const Question15 = () => {
                 id='A VONTADE'
                 value='A VONTADE'
                 checked={option === 'A VONTADE'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('A VONTADE')}
               />
               <span>A VONTADE (RAÍ, LUAN E ZEZO)</span>
             </label>
@@ -99,7 +124,7 @@ const Question15 = () => {
                 id='HENRY FREITAS'
                 value='HENRY FREITAS'
                 checked={option === 'HENRY FREITAS'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('HENRY FREITAS')}
               />
               <span>HENRY FREITAS</span>
             </label>
@@ -111,7 +136,7 @@ const Question15 = () => {
                 id='ZEVAQUEIRO'
                 value='ZÉ VAQUEIRO'
                 checked={option === 'ZÉ VAQUEIRO'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('ZÉ VAQUEIRO')}
               />
               <span>ZÉ VAQUEIRO</span>
             </label>
@@ -123,7 +148,7 @@ const Question15 = () => {
                 id='SIMONE MENDES'
                 value='SIMONE MENDES'
                 checked={option === 'SIMONE MENDES'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('SIMONE MENDES')}
               />
               <span>SIMONE MENDES</span>
             </label>
@@ -135,7 +160,7 @@ const Question15 = () => {
                 id='FELIPE AMORIM'
                 value='FELIPE AMORIM'
                 checked={option === 'FELIPE AMORIM'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('FELIPE AMORIM')}
               />
               <span>FELIPE AMORIM</span>
             </label>
@@ -147,7 +172,7 @@ const Question15 = () => {
                 id='FELIPEAMORIM'
                 value='BIZAY'
                 checked={option === 'BIZAY'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('BIZAY')}
               />
               <span>BIZAY</span>
             </label>
@@ -159,7 +184,7 @@ const Question15 = () => {
                 id='DENNIS DJ'
                 value='DENNIS DJ'
                 checked={option === 'DENNIS DJ'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('DENNIS DJ')}
               />
               <span>DENNIS DJ</span>
             </label>
@@ -171,7 +196,7 @@ const Question15 = () => {
                 id='ZECANTOR'
                 value='ZÉ CANTOR'
                 checked={option === 'ZÉ CANTOR'}
-                onChange={handleOptionSelected}
+                onChange={() => handleOptionSelected('ZÉ CANTOR')}
               />
               <span>ZÉ CANTOR</span>
             </label>
@@ -179,7 +204,10 @@ const Question15 = () => {
         </section>
       </main>
       <div className='flex justify-center items-center'>
-        <Button>PROXIMA PERGUNTA >>></Button>
+        <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
+      </div>
+      <div className='flex justify-center items-center'>
+        <Error/>
       </div>
     </div>
   )

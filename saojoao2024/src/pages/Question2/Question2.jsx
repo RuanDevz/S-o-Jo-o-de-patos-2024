@@ -8,10 +8,18 @@ import { useNavigate } from 'react-router-dom'
 
 const Question2 = () => {
 
+  window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
+  
+
   const navigate = useNavigate()
+  
 
   const [input, setInput] = useState('')
   const {error, setError, feedbacks, setFeedbacks} = useContext(Context)
+  
 
   const handleClick = () => {
     if (input.length === 0) {
@@ -28,8 +36,9 @@ const Question2 = () => {
 
     navigate('/question3')
   };
+  
   return (
-    <div>
+    <div className='font-rockwell'>
               <header className='flex justify-center items-center mt-28'>
             <Logo/>
         </header>
@@ -37,7 +46,7 @@ const Question2 = () => {
             <h1 className='text-white text-2xl font-bold py-10'>Qual a sua cidade?</h1>
             <Input onChange={(e) => setInput(e.target.value)} value={input} type='text' placeholder='Digite aqui...'/>
             <div className='mt-20'>
-            <Button onClick={handleClick}>PROXIMA PERGUNTA >>></Button>
+            <Button onClick={handleClick}>PROXIMA PERGUNTA &gt;&gt;&gt; </Button>
             <div className='flex justify-center items-center'>
               <Error/>
             </div>

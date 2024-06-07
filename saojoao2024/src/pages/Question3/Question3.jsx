@@ -10,11 +10,13 @@ const Question3 = () => {
   const [ageGroup, setAgeGroup] = useState('');
   const navigate = useNavigate()
 
+  window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
+
   const {error, setError,feedbacks, setFeedbacks} = useContext(Context)
 
-  const handleAgeSelection = (event) => {
-    setAgeGroup(event);
-  };
   const handleclick = () =>{
     if(ageGroup === ''){
       setError('Selecione uma faixa etária')
@@ -29,8 +31,9 @@ const Question3 = () => {
     console.log(feedbacks)
     navigate('/question4')
   }
+  
   return (
-    <div>
+    <div className='font-rockwell'>
       <header className='flex justify-center items-center mt-1'>
         <Logo/>
       </header>
@@ -113,7 +116,7 @@ const Question3 = () => {
         </section>
       </main>
       <div className='flex justify-center items-center'>
-      <Button onClick={handleclick}>PROXIMA PERGUNTA >>></Button>
+      <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>
         <Error/>

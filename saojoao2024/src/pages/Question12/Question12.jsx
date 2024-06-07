@@ -1,20 +1,40 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
+import Context from '../../Context/Context';
+import Error from '../../components/Error/Error';
 
 const Question12 = () => {
+
+window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+window.history.pushState(null, "", window.location.href);
+};
 
     const [option, setOption] = useState(null);
     const navigate = useNavigate()
   
     const handleOptionSelection = (event) => {
-        setOption(event.target.value);
+        setOption(event);
     };
   
+    const {setError, feedbacks, setFeedbacks} = useContext(Context)
+  
     const handleclick = () =>{
-      navigate('/question4')
+      if(!option){
+        setError('Preencha o campo!')
+        setTimeout(() => {
+         setError('')
+         return
+        }, 3000);
+      }else{
+        feedbacks.push(option)
+        setFeedbacks(feedbacks)
+        console.log(feedbacks)
+        navigate('/question13')
+      }
     }
 
 
@@ -34,7 +54,7 @@ const Question12 = () => {
                 id='SUPEROUASEXPECTATIVAS'
                 value='SUPEROU AS EXPECTATIVAS'
                 checked={option === 'SUPEROU AS EXPECTATIVAS'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('SUPEROU AS EXPECTATIVAS')}
               />
               <span>SUPEROU AS EXPECTATIVAS</span>
             </label>
@@ -46,7 +66,7 @@ const Question12 = () => {
                 id='ATENDEUPLENAMENTE'
                 value='ATENDEU PLENAMENTE'
                 checked={option === 'ATENDEU PLENAMENTE'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('ATENDEU PLENAMENTE')}
               />
               <span>ATENDEU PLENAMENTE</span>
             </label>
@@ -58,7 +78,7 @@ const Question12 = () => {
                 id='ATENDEUEMPARTES'
                 value='ATENDEU EM PARTES'
                 checked={option === 'ATENDEU EM PARTES'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('ATENDEU EM PARTES')}
               />
               <span>ATENDEU EM PARTES</span>
             </label>
@@ -70,7 +90,7 @@ const Question12 = () => {
                 id='INDIFERENTE'
                 value='INDIFERENTE'
                 checked={option === 'INDIFERENTE'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('INDIFERENTE')}
               />
               <span>INDIFERENTE</span>
             </label>
@@ -82,7 +102,7 @@ const Question12 = () => {
                 id='NÃOATENDEUASEXPECTATIVAS'
                 value='NÃO ATENDEU AS EXPECTATIVAS'
                 checked={option === 'NÃO ATENDEU AS EXPECTATIVAS'}
-                onChange={handleOptionSelection}
+                onChange={() => handleOptionSelection('NÃO ATENDEU AS EXPECTATIVAS')}
               />
               <span>NÃO ATENDEU AS EXPECTATIVAS</span>
             </label>
@@ -90,7 +110,10 @@ const Question12 = () => {
         </section>
       </main>
       <div className='flex justify-center items-center'>
-      <Button onClick={handleclick}>PROXIMA PERGUNTA >>></Button>
+      <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
+      </div>
+      <div className='flex justify-center items-center'>
+        <Error/>
       </div>
     </div>
   )
