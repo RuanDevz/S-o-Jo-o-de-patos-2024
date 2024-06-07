@@ -1,10 +1,10 @@
 import React from 'react'
 import './Inputcheck.css'
 
-const InputCheck = ({id, type, name}) => {
+const InputCheck = ({id, type, name,onChange}) => {
   return (
     <div>
-      <input type={type} name={name} id={id} />
+      <input onChange={onChange} type={type} name={name} id={id} />
 
     </div>
   )

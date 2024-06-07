@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Start from './pages/Start/Start'
 import {BrowserRouter as Router, Routes, Route}  from 'react-router-dom'
 
@@ -20,10 +20,23 @@ import Question15 from './pages/Question15/Question15'
 import Question16 from './pages/Question16/Question16'
 import Question17 from './pages/Question17/Question17'
 import Finish from './pages/Finish/Finish'
+import Context from './Context/Context'
+
+
 
 const App = () => {
+
+  const [error, setError] = useState('');
+  const [feedbacks, setFeedbacks] = useState([]);
+
+
   return (
-    <Router>
+    <Context.Provider value={{
+      error, setError,
+      feedbacks, setFeedbacks
+
+    }}>
+      <Router>
       <Routes>
       <Route path='/' element={<Start/>}></Route>
       <Route path='/question1' element={<Question1/>} />
@@ -46,6 +59,7 @@ const App = () => {
       <Route path='/finish' element={<Finish/>}/>
       </Routes>
     </Router>
+    </Context.Provider>
   )
 }
 

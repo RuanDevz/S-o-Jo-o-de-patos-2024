@@ -1,15 +1,32 @@
-import React, { useState } from 'react'; // Importe o React e o useState
+import React, { useContext, useState } from 'react';
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import Context from '../../Context/Context';
+import Error from '../../components/Error/Error';
 
 const Question4 = () => {
   const [gender, setGender] = useState(null); 
-                                                   
+  const navigate = useNavigate()
 
-  const handleGenederSelected = (event) => { 
-    setGender(event.target.value);
-  };
+  const {error, setError, feedbacks, setFeedbacks} = useContext(Context)
+
+  const handleclick = () =>{
+    if(!gender){
+      setError('Preencha seu gênero')
+      setTimeout(() => {
+        setError('')
+      }, 3000);
+      return
+    }
+
+    feedbacks.push(gender)
+    setFeedbacks(feedbacks)
+    console.log(feedbacks)
+
+    navigate('/question5')
+  }
 
   return (
     <div>
@@ -26,7 +43,7 @@ const Question4 = () => {
                 id='age20'
                 value='20'
                 checked={gender === 'MULHER'}
-                onChange={handleGenederSelected}
+                onChange={() => setGender('MULHER')}
               />
               <span>MULHER</span>
             </label>
@@ -38,7 +55,7 @@ const Question4 = () => {
                 id='age20-29'
                 value='20-29'
                 checked={gender === 'HOMEM'}
-                onChange={handleGenederSelected}
+                onChange={() => setGender('HOMEM')}
               />
               <span>HOMEM</span>
             </label>
@@ -50,7 +67,7 @@ const Question4 = () => {
                 id='age30-39'
                 value='30-39'
                 checked={gender === 'PREFIRO NÃO INFORMAR'}
-                onChange={handleGenederSelected}
+                onChange={() => setGender('PREFIRO NÃO INFORMAR')}
               />
               <span>PREFIRO NÃO INFORMAR</span>
             </label>
@@ -58,7 +75,10 @@ const Question4 = () => {
         </section>
       </main>
       <div className='flex justify-center items-center'>
-        <Button>PROXIMA PERGUNTA >></Button>
+        <Button onClick={handleclick}>PROXIMA PERGUNTA >>></Button>
+      </div>
+      <div className='flex justify-center items-center'>
+        <Error/>
       </div>
     </div>
   );
