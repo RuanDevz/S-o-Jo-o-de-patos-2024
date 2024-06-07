@@ -11,6 +11,9 @@
   font-family: 'Rockwell';
 }
 
+
+
 body{
+  overflow-x: hidden;
   background-image: url('./assets/Background/Background.png');
 }

@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button'
 import Context from '../../Context/Context'
 import Error from '../../components/Error/Error'
 import { useNavigate } from 'react-router-dom'
+import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona'
 
 const Question1 = () => {
 
@@ -48,6 +49,9 @@ const Question1 = () => {
             <div className='flex justify-center items-center'>
             <Error />
             </div>
+            </div>
+            <div>
+              <BalaoESanfona />
             </div>
         </main>
     </div>

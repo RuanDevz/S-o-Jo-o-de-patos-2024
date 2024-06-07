@@ -5,6 +5,7 @@ import Input from '../../components/Input/Input'
 import Context from '../../Context/Context'
 import Error from '../../components/Error/Error'
 import { useNavigate } from 'react-router-dom'
+import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona'
 
 const Question16 = () => {
 
@@ -50,6 +51,9 @@ window.history.pushState(null, "", window.location.href);
             </div>
             <div className='flex justify-center items-center'>
               <Error/>
+            </div>
+            <div>
+                <BalaoESanfona />
             </div>
         </main>
     </div>

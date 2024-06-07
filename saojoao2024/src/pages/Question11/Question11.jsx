@@ -5,6 +5,7 @@ import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
 import Context from '../../Context/Context';
 import Error from '../../components/Error/Error';
+import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
 
 const Question11 = () => {
 
@@ -101,6 +102,9 @@ window.history.pushState(null, "", window.location.href);
       </div>
       <div className='flex justify-center items-center'>
         <Error/>
+      </div>
+      <div>
+          <BalaoESanfona />
       </div>
     </div>
   )
