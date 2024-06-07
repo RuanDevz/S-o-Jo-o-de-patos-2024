@@ -11,6 +11,8 @@ const Question3 = () => {
   const [ageGroup, setAgeGroup] = useState('');
   const navigate = useNavigate()
 
+  const [zoom, setZoom] = useState(0.9)
+
   window.history.pushState(null, "", window.location.href);
 window.onpopstate = function () {
 window.history.pushState(null, "", window.location.href);
@@ -34,11 +36,11 @@ window.history.pushState(null, "", window.location.href);
   }
   
   return (
-    <div className='font-rockwell'>
-      <header className='flex justify-center items-center mt-1'>
+    <div style={{zoom: zoom}} className='font-rockwell'>
+      <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-2xl text-center'>Qual a sua faixa etária?</h1>
+      <h1 className='text-white font-bold text-2xl text-center pt-5'>Qual a sua faixa etária?</h1>
       <main className='flex justify-center items-center font-rockwell'>
         <section className=''>
         <div>

@@ -50,7 +50,7 @@ window.history.pushState(null, "", window.location.href);
       <main className='flex justify-center items-center font-rockwell'>
         <section className=''>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="age20">
+            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="one">
               <InputCheck
                 type='checkbox'
                 id='one'
@@ -62,7 +62,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="age20-29">
+            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="two">
               <InputCheck
                 type='checkbox'
                 id='two'
@@ -74,7 +74,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="age30-39">
+            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="three">
               <InputCheck
                 type='checkbox'
                 id='three'
@@ -86,7 +86,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="age30-39">
+            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="four">
               <InputCheck
                 type='checkbox'
                 id='four'
@@ -98,7 +98,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="age30-39">
+            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="five">
               <InputCheck
                 type='checkbox'
                 id='five'

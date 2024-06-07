@@ -10,6 +10,7 @@ import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
 const Question7 = () => {
 
     const [option, setOption] = useState('')
+    const [zoom, setZoom] = useState(0.8)
 
     window.history.pushState(null, "", window.location.href);
 window.onpopstate = function () {
@@ -41,7 +42,7 @@ window.history.pushState(null, "", window.location.href);
 
 
   return (
-    <div className='font-rockwell'>
+    <div style={{zoom: zoom}} className='font-rockwell'>
             <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>

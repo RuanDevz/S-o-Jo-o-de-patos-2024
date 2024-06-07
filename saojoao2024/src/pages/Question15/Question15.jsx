@@ -8,6 +8,8 @@ import Error from '../../components/Error/Error';
 import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
 
 const Question15 = () => {
+  
+  const [zoom, setZoom] = useState(0.8)
 
   window.history.pushState(null, "", window.location.href);
 window.onpopstate = function () {
@@ -39,7 +41,7 @@ window.history.pushState(null, "", window.location.href);
     }
 
   return (
-    <div>
+    <div style={{zoom: zoom}}>
        <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>
@@ -204,7 +206,7 @@ window.history.pushState(null, "", window.location.href);
           </div>
         </section>
       </main>
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center mt-10'>
         <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>

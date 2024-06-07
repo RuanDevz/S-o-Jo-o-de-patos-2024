@@ -9,6 +9,8 @@ import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
 
 const Question6 = () => {
 
+  const [zoom, setZoom] = useState(0.8)
+
   const navigate = useNavigate()
 
   window.history.pushState(null, "", window.location.href);
@@ -40,7 +42,7 @@ window.history.pushState(null, "", window.location.href);
       }
 
   return (
-    <div className='font-rockwell'>
+    <div style={{zoom: zoom}} className='font-rockwell'>
       <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>
