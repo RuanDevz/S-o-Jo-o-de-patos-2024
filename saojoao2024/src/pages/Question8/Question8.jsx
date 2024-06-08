@@ -67,7 +67,7 @@ window.history.pushState(null, "", window.location.href);
       </header>
       <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-40'>
       <h1 className='text-white font-bold text-center py-2 text-2xl lg:max-w-80 lg:text-5xl lg:leading-normal'>Sobre a estrutura do evento você gostou?</h1>
-        <section className='text-3xl'>
+        <section className='lg:text-3xl'>
           <div>
             <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="gosteimuito">
               <InputCheck
