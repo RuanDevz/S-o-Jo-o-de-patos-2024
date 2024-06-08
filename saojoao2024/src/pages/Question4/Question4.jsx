@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, } from 'react';
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
@@ -39,7 +39,7 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div className='font-rockwell'>
-      <header className='flex justify-center items-center pb-0 mt-14 lg:mt-36 lg:pb-20'>
+      <header className='flex justify-center items-center pb-0 mt-14 lg:mt-10 lg:pb-20'>
         <Logo/>
       </header>
       <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-64'>

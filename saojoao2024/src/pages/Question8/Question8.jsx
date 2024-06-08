@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react'
+import React,{useContext, useState, useEffect} from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
@@ -8,6 +8,25 @@ import Context from '../../Context/Context';
 import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
 
 const Question8 = () => {
+
+  const [zoom, setZoom] = useState(null)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setZoom(0.9);
+      } else {
+        setZoom(1); 
+      }
+    };
+
+    handleResize(); 
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
 
   window.history.pushState(null, "", window.location.href);
 window.onpopstate = function () {
@@ -42,7 +61,7 @@ window.history.pushState(null, "", window.location.href);
     }
 
   return (
-    <div className='font-rockwell'>
+    <div style={{zoom: zoom}} className='font-rockwell'>
         <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>

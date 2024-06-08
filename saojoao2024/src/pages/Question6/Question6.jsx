@@ -15,13 +15,13 @@ const Question6 = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setZoom(0.78);
+        setZoom(0.76);
       } else {
         setZoom(1); 
       }
     };
 
-    handleResize(); // Chame a função de redimensionamento após o carregamento inicial
+    handleResize(); 
     window.addEventListener('resize', handleResize);
 
     return () => {
