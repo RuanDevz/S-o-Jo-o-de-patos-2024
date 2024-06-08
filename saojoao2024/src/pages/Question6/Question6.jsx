@@ -16,8 +16,10 @@ const Question6 = () => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setZoom(0.76);
-      } else {
-        setZoom(1); 
+      } else if(window.innerHeight < 1024) {
+        setZoom(0.9); 
+      }else{
+        setZoom(1)
       }
     };
 
@@ -65,7 +67,7 @@ window.history.pushState(null, "", window.location.href);
       <header className='flex justify-center items-center mt-5 lg:pb-10'>
         <Logo/>
       </header>
-      <main className='flex justify-center items-center font-rockwell flex-col gap-0 lg:flex-row lg:justify-center lg:gap-20'>
+      <main className='flex justify-center items-center font-rockwell flex-col gap-0 lg:flex-row lg:justify-center lg:gap-20 mx-1'>
       <h1 className='text-white font-bold text-center py-2 text-2xl font-rockwell lg:text-6xl max-w-text'>O que você mais gostou ?</h1>
         <section className='mr-40   lg:flex flex-col'>
           <div>

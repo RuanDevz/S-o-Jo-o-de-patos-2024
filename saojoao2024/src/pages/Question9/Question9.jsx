@@ -44,10 +44,12 @@ window.history.pushState(null, "", window.location.href);
             <header className='flex justify-center items-center mt-5'>
                 <Logo/>
             </header>
-            <h1 className='text-white font-bold text-center text-base py-2'>Qual seu nível de satisfação com as atrações?</h1>
-            <p className='text-xs text-center'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
-            <main className='flex justify-center items-center font-rockwell'>
-                <section className=''>
+            <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-40'>
+            <div className='lg:flex flex-col justify-center items-center'>
+             <h1 className='text-white font-bold text-center text-base py-2 lg:text-5xl lg:max-w-text'>Qual seu nível de satisfação com as atrações?</h1>
+            <p className='text-xs text-center lg:text-lg lg:mt-3'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
+            </div>
+                <section className='lg:text-3xl'>
                     <div>
                         <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="one">
                             <InputCheck

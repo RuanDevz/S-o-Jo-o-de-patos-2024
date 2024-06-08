@@ -65,9 +65,9 @@ window.history.pushState(null, "", window.location.href);
         <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-center py-2 text-2xl'>Sobre a estrutura do evento você gostou?</h1>
-      <main className='flex justify-center items-center font-rockwell'>
-        <section className=''>
+      <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-40'>
+      <h1 className='text-white font-bold text-center py-2 text-2xl lg:max-w-80 lg:text-5xl lg:leading-normal'>Sobre a estrutura do evento você gostou?</h1>
+        <section className='text-3xl'>
           <div>
             <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="gosteimuito">
               <InputCheck
@@ -130,7 +130,7 @@ window.history.pushState(null, "", window.location.href);
           </div>
         </section>
       </main>
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center lg:mt-10'>
         <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt; </Button>
       </div>
       <div className='flex justify-center items-center'>

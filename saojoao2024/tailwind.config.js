@@ -18,7 +18,7 @@ export default {
       },
       maxWidth:{
         desktop: '800px',
-        text: '490px'
+        text: '540px',
       }
     },
   },
