@@ -33,6 +33,7 @@ window.history.pushState(null, "", window.location.href);
          return
         }, 3000);
       }else{
+        window.scrollTo({top: 0});
         feedbacks.push(nota)
         setFeedbacks(feedbacks)
         console.log(feedbacks)

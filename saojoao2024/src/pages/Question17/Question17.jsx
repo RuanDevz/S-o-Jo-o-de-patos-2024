@@ -26,6 +26,7 @@ window.history.pushState(null, "", window.location.href);
     if(input === ''){
       setInput('Nome não informado')
     } else {
+      window.scrollTo({top: 0});
       feedbacks.push(input)
       setFeedbacks(feedbacks)
       console.log(feedbacks)

@@ -29,6 +29,8 @@ const Question1 = () => {
       return;
     }
 
+    window.scrollTo({top: 0});
+
     feedbacks.push(input)
     setFeedbacks(feedbacks)
     console.log(feedbacks)

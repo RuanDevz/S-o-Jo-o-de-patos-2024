@@ -30,6 +30,8 @@ window.history.pushState(null, "", window.location.href);
       }, 3000);
       return;
     }
+    
+    window.scrollTo({top: 0});
 
     feedbacks.push(input)
     setFeedbacks(feedbacks)

@@ -29,6 +29,8 @@ window.history.pushState(null, "", window.location.href);
       return
     }
 
+    window.scrollTo({top: 0});
+
     feedbacks.push(ageGroup)
     setFeedbacks(feedbacks)
     console.log(feedbacks)
