@@ -45,7 +45,9 @@ window.history.pushState(null, "", window.location.href);
        <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-center text-base py-2'>Sobre a segurança do evento qual o seu grau de satisfação?</h1>
+      <div className='flex justify-center items-center'>
+      <h1 className='text-white font-bold text-center text-base py-2 max-w-80'>Sobre a segurança do evento qual o seu grau de satisfação?</h1>
+      </div>
       <p className='text-xs text-center'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
       <main className='flex justify-center items-center font-rockwell'>
         <section className=''>

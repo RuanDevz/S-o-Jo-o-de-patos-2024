@@ -41,10 +41,10 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div>
-            <header className='flex justify-center items-center mt-10'>
+            <header className='flex justify-center items-center mt-5'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-2xl text-center'>Sobre suas expectativas em relação ao São João</h1>
+      <h1 className='text-white font-bold text-2xl text-center pt-3'>Sobre suas expectativas em relação ao São João</h1>
       <main className='flex justify-center items-center font-rockwell'>
         <section className=''>
         <div>

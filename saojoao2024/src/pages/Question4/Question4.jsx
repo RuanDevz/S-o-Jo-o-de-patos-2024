@@ -40,7 +40,7 @@ window.history.pushState(null, "", window.location.href);
       <header className='flex justify-center items-center mt-14'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-2xl text-center'>Qual seu gênero?</h1>
+      <h1 className='text-white font-bold text-2xl text-center py-5'>Qual seu gênero?</h1>
       <main className='flex justify-center items-center font-rockwell'>
         <section className=''>
           <div>
