@@ -1,3 +1,13 @@
 .balao{
     transform: translateX(20%);
 }
+
+@media screen and (min-width: 1024px) {
+    img#balao{
+        width:180px;
+    }
+    
+    img#sanfona{
+        width: 240px;
+    }
+}

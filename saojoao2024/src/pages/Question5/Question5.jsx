@@ -41,17 +41,17 @@ window.history.pushState(null, "", window.location.href);
     }
   return (
     <div className='font-rockwell'>
-       <header className='flex justify-center items-center mt-5'>
+       <header className='flex justify-center items-center mt-5 lg:mt-20'>
         <Logo/>
       </header>
-      <div className='flex justify-center items-center'>
-      <h1 className='text-white font-bold text-center text-base py-3 max-w-80'>De 1 a 5 quanto você ficou satisfeito com o São João de Patos 2024</h1>
+      <main className='flex justify-center items-center flex-col text-base gap-0 font-rockwell lg:flex-row lg:gap-20 lg:text-3xl'>
+      <div className='flex justify-center items-center flex-col'>
+      <h1 className='text-white font-bold text-center text-base pb-0 py-3 max-w-80 lg:text-4xl lg:max-w-text lg:pb-5'>De 1 a 5 quanto você ficou satisfeito com o São João de Patos 2024</h1>
+      <p className='text-xs text-center lg:text-sm'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
       </div>
-      <p className='text-xs text-center'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
-      <main className='flex justify-center items-center font-rockwell'>
         <section className=''>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="one">
+            <label className='flex items-center gap-5 my-5 text-white font-bold' htmlFor="one">
               <InputCheck
                 type='checkbox'
                 id='one'
@@ -63,7 +63,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="two">
+            <label className='flex items-center gap-5 my-5 text-white font-bold' htmlFor="two">
               <InputCheck
                 type='checkbox'
                 id='two'
@@ -75,7 +75,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="three">
+            <label className='flex items-center gap-5 my-5 text-white font-bold' htmlFor="three">
               <InputCheck
                 type='checkbox'
                 id='three'
@@ -87,7 +87,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="four">
+            <label className='flex items-center gap-5 my-5 text-white font-bold' htmlFor="four">
               <InputCheck
                 type='checkbox'
                 id='four'
@@ -99,7 +99,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="five">
+            <label className='flex items-center gap-5 my-5 text-white font-bold' htmlFor="five">
               <InputCheck
                 type='checkbox'
                 id='five'

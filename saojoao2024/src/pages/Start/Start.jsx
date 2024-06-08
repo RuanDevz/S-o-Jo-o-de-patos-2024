@@ -62,12 +62,12 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div>
-      <header className='flex justify-center items-center mt-5 pb-10'>
+      <header className='flex justify-center items-center mt-5 pb-10 lg:mt-14'>
         <img src={logo} alt="logo" />
       </header>
       <main className='flex flex-col justify-center items-center font-rockwell'>
-        <p className='text-white bg-Ocean whitespace-nowrap font-medium'>A sua opinião é de extrema importância para nós!</p>
-        <p className='text-white font-medium text-center text-xl max-w-80 pb-16'>
+        <p className='text-white bg-Ocean whitespace-nowrap font-medium lg:text-3xl p-2'>A sua opinião é de extrema importância para nós!</p>
+        <p className='text-white font-medium text-center text-xl max-w-80 pb-16 lg:max-w-desktop lg:text-3xl'>
           Queremos saber <span className='text-Orange'>o que você achou</span> do São João da gente deste ano para que <span className='text-Pink'>possamos continuar aprimorando </span>e oferecendo uma experiência ainda melhor nas próximas edições
         </p>
       </main>
@@ -82,7 +82,7 @@ window.history.pushState(null, "", window.location.href);
             onChange={handleChange}
           />
         </div>
-        <button onClick={handleClick} className='bg-Pink p-3 text-white rounded-3xl border-4 border-white text-2xl w-40'>INICIAR</button>
+        <button onClick={handleClick} className='bg-Pink p-3 text-white rounded-3xl border-4 border-white text-2xl w-40 lg:w-64 mt-8 cursor-pointer hover:bg-Pinkhover'>INICIAR</button>
         <Error />
       </div>
     </div>

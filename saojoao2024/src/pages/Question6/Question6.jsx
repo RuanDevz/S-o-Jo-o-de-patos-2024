@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
@@ -6,10 +6,28 @@ import Context from '../../Context/Context'
 import { useNavigate } from 'react-router-dom';
 import Error from '../../components/Error/Error';
 import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
+import './style.css'
 
 const Question6 = () => {
 
-  const [zoom, setZoom] = useState(0.8)
+  const [zoom, setZoom] = useState(null)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setZoom(0.78);
+      } else {
+        setZoom(1); 
+      }
+    };
+
+    handleResize(); // Chame a função de redimensionamento após o carregamento inicial
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
 
   const navigate = useNavigate()
 
@@ -44,14 +62,14 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div style={{zoom: zoom}} className='font-rockwell'>
-      <header className='flex justify-center items-center mt-5'>
+      <header className='flex justify-center items-center mt-5 lg:pb-10'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-center py-2 text-2xl font-rockwell'>O que você mais gostou ?</h1>
-      <main className='flex justify-center items-center font-rockwell'>
-        <section className=''>
+      <main className='flex justify-center items-center font-rockwell flex-col gap-0 lg:flex-row lg:justify-center lg:gap-20'>
+      <h1 className='text-white font-bold text-center py-2 text-2xl font-rockwell lg:text-6xl max-w-text'>O que você mais gostou ?</h1>
+        <section className='mr-40   lg:flex flex-col'>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ATRAÇÕES">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="ATRAÇÕES">
               <InputCheck
                 type='checkbox'
                 id='ATRAÇÕES'
@@ -63,7 +81,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ESTRUTURAS">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="ESTRUTURAS">
               <InputCheck
                 type='checkbox'
                 id='ESTRUTURAS'
@@ -75,7 +93,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ATIVAÇÕES">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="ATIVAÇÕES">
               <InputCheck
                 type='checkbox'
                 id='ATIVAÇÕES'
@@ -87,7 +105,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ORGANIZAÇÃO">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="ORGANIZAÇÃO">
               <InputCheck
                 type='checkbox'
                 id='ORGANIZAÇÃO'
@@ -99,7 +117,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="LIMPEZA">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="LIMPEZA">
               <InputCheck
                 type='checkbox'
                 id='LIMPEZA'
@@ -111,7 +129,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="SEGURANÇA">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="SEGURANÇA">
               <InputCheck
                 type='checkbox'
                 id='SEGURANÇA'
@@ -122,8 +140,10 @@ window.history.pushState(null, "", window.location.href);
               <span>SEGURANÇA</span>
             </label>
           </div>
-          <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="BOMBEIROS/SAMU">
+        </section>
+        <section className=''>
+        <div>
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="BOMBEIROS/SAMU">
               <InputCheck
                 type='checkbox'
                 id='BOMBEIROS/SAMU'
@@ -135,7 +155,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="BARRACAS">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="BARRACAS">
               <InputCheck
                 type='checkbox'
                 id='BARRACAS'
@@ -147,7 +167,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="CENOGRAFIA">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="CENOGRAFIA">
               <InputCheck
                 type='checkbox'
                 id='CENOGRAFIA'
@@ -159,7 +179,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ILUMINAÇÃO">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="ILUMINAÇÃO">
               <InputCheck
                 type='checkbox'
                 id='ILUMINAÇÃO'
@@ -171,7 +191,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="SOMDOPALCO">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="SOMDOPALCO">
               <InputCheck
                 type='checkbox'
                 id='SOMDOPALCO'
@@ -183,7 +203,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ACESSOS">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="ACESSOS">
               <InputCheck
                 type='checkbox'
                 id='ACESSOS'
@@ -195,7 +215,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="BANHEIROS">
+            <label className='flex items-center gap-5 my-3 text-base text-white font-bold lg:text-2xl' htmlFor="BANHEIROS">
               <InputCheck
                 type='checkbox'
                 id='BANHEIROS'
@@ -208,7 +228,7 @@ window.history.pushState(null, "", window.location.href);
           </div>
         </section>
       </main>
-      <div className='flex justify-center items-center mt-3'>
+      <div className='flex justify-center items-center mt-3 lg:mt-20'>
         <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>

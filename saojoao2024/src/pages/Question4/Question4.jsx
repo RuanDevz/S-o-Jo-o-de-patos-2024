@@ -39,14 +39,14 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div className='font-rockwell'>
-      <header className='flex justify-center items-center mt-14'>
+      <header className='flex justify-center items-center pb-0 mt-14 lg:mt-36 lg:pb-20'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-2xl text-center py-5'>Qual seu gênero?</h1>
-      <main className='flex justify-center items-center font-rockwell'>
+      <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-64'>
+      <h1 className='text-white font-bold text-2xl text-center py-5 lg:max-w-96 lg:text-6xl'>Qual seu gênero?</h1>
         <section className=''>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="age20">
+            <label className='flex items-center gap-5 my-10 text-white font-bold text-base lg:text-3xl lg:my-5' htmlFor="age20">
               <InputCheck
                 type='checkbox'
                 id='age20'
@@ -58,7 +58,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="age20-29">
+            <label className='flex items-center gap-5 my-10 text-white font-bold text-base lg:text-3xl lg:my-5' htmlFor="age20-29">
               <InputCheck
                 type='checkbox'
                 id='age20-29'
@@ -70,7 +70,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="age30-39">
+            <label className='flex items-center gap-5 my-10 text-white font-bold text-base lg:text-3xl lg:my-5' htmlFor="age30-39">
               <InputCheck
                 type='checkbox'
                 id='age30-39'
@@ -83,7 +83,7 @@ window.history.pushState(null, "", window.location.href);
           </div>
         </section>
       </main>
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center lg:mt-40'>
         <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>

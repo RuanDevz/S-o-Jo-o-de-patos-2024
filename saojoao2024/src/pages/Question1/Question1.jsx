@@ -44,7 +44,7 @@ const Question1 = () => {
             <Logo/>
         </header>
         <main className='flex justify-center items-center flex-col '>
-            <h1 className='text-white text-2xl font-bold py-10'>Qual estado você mora ?</h1>
+            <h1 className='text-white text-2xl font-bold py-10 lg:text-4xl'>Qual estado você mora ?</h1>
             <Input onChange={(e) => setInput(e.target.value)} value={input} type='text' placeholder='Digite aqui...'/>
             <div className='mt-20'>
             <Button onClick={handleClick}>PROXIMA PERGUNTA &gt;&gt;&gt; </Button>

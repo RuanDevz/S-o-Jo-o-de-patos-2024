@@ -1,0 +1,6 @@
+@media screen and (min-width: 1024px) {
+    input#inputstart{
+        width: 440px;
+        font-size: 2em;
+    }
+}

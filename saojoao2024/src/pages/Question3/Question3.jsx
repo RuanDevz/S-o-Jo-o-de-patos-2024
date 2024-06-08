@@ -39,14 +39,15 @@ window.history.pushState(null, "", window.location.href);
   
   return (
     <div style={{zoom: zoom}} className='font-rockwell'>
-      <header className='flex justify-center items-center mt-5'>
+      <header className='flex justify-center items-center mt-5 lg:mt-20 pb-5'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-2xl text-center pt-5'>Qual a sua faixa etária?</h1>
-      <main className='flex justify-center items-center font-rockwell'>
+
+      <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-44'>
+      <h1 className='text-white font-bold text-2xl text-center pt-5 lg:text-6xl max-w-96'>Qual a sua faixa etária?</h1>
         <section className=''>
         <div>
-            <label className='flex items-center gap-5 my-10 text-white font-bold' 
+            <label className='flex items-center gap-5 my-10 text-white font-bold text-base lg:my-5 lg:text-3xl' 
             htmlFor="age20">
                 <InputCheck
                 type='checkbox'
@@ -59,7 +60,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
         <div>
-            <label className='flex items-center gap-5  my-10 text-white font-bold' htmlFor="age20-29">
+            <label className='flex items-center gap-5  my-10 text-white font-bold text-base lg:my-5 lg:text-3xl' htmlFor="age20-29">
             <InputCheck
                 type='checkbox'
                 id='age20-29'
@@ -71,7 +72,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5  my-10 text-white font-bold' htmlFor="age30-39">
+            <label className='flex items-center gap-5  my-10 text-white font-bold text-base lg:my-5 lg:text-3xl' htmlFor="age30-39">
               <InputCheck
                 type='checkbox'
                 id='age30-39'
@@ -83,7 +84,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5  my-10 text-white font-bold' htmlFor="age40-49">
+            <label className='flex items-center gap-5  my-10 text-white font-bold text-base lg:my-5 lg:text-3xl' htmlFor="age40-49">
               <InputCheck
                 type='checkbox'
                 id='age40-49'
@@ -95,7 +96,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5  my-10 text-white font-bold' htmlFor="age50-59">
+            <label className='flex items-center gap-5  my-10 text-white font-bold text-base lg:my-5 lg:text-3xl' htmlFor="age50-59">
               <InputCheck
                 type='checkbox'
                 id='age50-59'
@@ -107,7 +108,7 @@ window.history.pushState(null, "", window.location.href);
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5  my-10 text-white font-bold' htmlFor="age60plus">
+            <label className='flex items-center gap-5  my-10 text-white font-bold text-base lg:my-5 lg:text-3xl' htmlFor="age60plus">
               <InputCheck
                 type='checkbox'
                 id='age60plus'
@@ -120,7 +121,7 @@ window.history.pushState(null, "", window.location.href);
           </div>
         </section>
       </main>
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center lg:mt-20'>
       <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>
