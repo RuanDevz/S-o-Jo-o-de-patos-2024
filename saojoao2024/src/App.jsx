@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Start from './pages/Start/Start'
-import {BrowserRouter as Router, Routes, Route}  from 'react-router-dom'
+import {HashRouter as Router, Routes, Route}  from 'react-router-dom'
 
 import Question1 from './pages/Question1/Question1'
 import Question2 from './pages/Question2/Question2'
