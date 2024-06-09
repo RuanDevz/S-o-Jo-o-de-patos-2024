@@ -5,17 +5,17 @@ import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import Context from '../../Context/Context';
 import Error from '../../components/Error/Error';
+import axios from 'axios';
 
 const Start = () => {
-window.history.pushState(null, "", window.location.href);
-window.onpopstate = function () {
-window.history.pushState(null, "", window.location.href);
-};
-
+  window.history.pushState(null, "", window.location.href);
+  window.onpopstate = function () {
+    window.history.pushState(null, "", window.location.href);
+  };
 
   const [telefone, setTelefone] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false); // Estado para controlar a habilitação do botão
   const { error, setError, feedbacks, setFeedbacks } = useContext(Context);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -36,11 +36,22 @@ window.history.pushState(null, "", window.location.href);
   const handleClick = () => {
     if (telefone.length < 14) {
       setError('Digite um telefone válido!');
-      setTimeout(() => {
-        setError('')
-      }, 3000);
       return;
     }
+
+    setIsButtonDisabled(true); // Desabilita o botão ao iniciar a requisição
+
+    axios.post('https://apisaojoao2024.vercel.app/telefone',{
+      telefone: telefone
+    }).then((response) =>{
+      console.log(response.data);
+      navigate('/question1');
+    }).catch((err) => {
+      setError('Telefone já cadastrado!');
+      console.log(err);
+    }).finally(() => {
+      setIsButtonDisabled(false); // Habilita o botão ao finalizar a requisição
+    });
 
     const currentDate = new Date();
     const day = String(currentDate.getDate()).padStart(2, '0');
@@ -55,9 +66,8 @@ window.history.pushState(null, "", window.location.href);
     const DataAndTime = `${formattedDate} - ${formattedTime}`
 
     const feedbackWithNumber = telefone;
-    
+
     setFeedbacks([...feedbacks, DataAndTime, feedbackWithNumber]);
-    navigate('/question1');
   };
 
   return (
@@ -82,7 +92,12 @@ window.history.pushState(null, "", window.location.href);
             onChange={handleChange}
           />
         </div>
-        <button onClick={handleClick} className='bg-Pink p-3 text-white rounded-3xl border-4 border-white text-2xl w-40 lg:w-64 mt-8 cursor-pointer hover:bg-Pinkhover'>INICIAR</button>
+        <button 
+          onClick={handleClick} 
+          disabled={isButtonDisabled} // Desabilita o botão se isButtonDisabled for verdadeiro
+          className='bg-Pink p-3 text-white rounded-3xl border-4 border-white text-2xl w-40 lg:w-64 mt-8 cursor-pointer hover:bg-Pinkhover'>
+          {isButtonDisabled ? 'Aguarde...' : 'INICIAR'} {/* Altera o texto do botão enquanto a requisição está em andamento */}
+        </button>
         <Error />
       </div>
     </div>

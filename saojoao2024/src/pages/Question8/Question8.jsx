@@ -37,6 +37,11 @@ window.history.pushState(null, "", window.location.href);
     const [nota, setNota] = useState(null)
 
     const {setError, feedbacks, setFeedbacks} = useContext(Context)
+
+    
+  useEffect(() => {
+    setError('')
+  },[])
     
     const navigate = useNavigate()
 
@@ -47,10 +52,6 @@ window.history.pushState(null, "", window.location.href);
     const handleclick = () =>{
       if(!nota){
         setError('Preencha o campo!')
-        setTimeout(() => {
-         setError('')
-         return
-        }, 3000);
       }else{
         window.scrollTo({top: 0});
         feedbacks.push(nota)

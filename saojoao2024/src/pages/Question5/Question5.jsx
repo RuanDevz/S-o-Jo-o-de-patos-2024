@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState , useEffect} from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
@@ -11,6 +11,9 @@ const Question5 = () => {
     const [nota, setNota] = useState(null)
 
     const {error, setError, feedbacks, setFeedbacks} = useContext(Context)
+    useEffect(() => {
+      setError('')
+    },[])
 
     window.history.pushState(null, "", window.location.href);
 window.onpopstate = function () {
@@ -27,10 +30,6 @@ window.history.pushState(null, "", window.location.href);
     const handleClick = () => {
       if (!nota) {
         setError('Preencha o campo!')
-        setTimeout(() => {
-          setError('')
-          return
-        }, 3000);
       } else {
         window.scrollTo({top: 0});
         feedbacks.push(nota)

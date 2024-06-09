@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
@@ -17,6 +17,11 @@ window.history.pushState(null, "", window.location.href);
 
     const {setError, feedbacks, setFeedbacks} = useContext(Context)
 
+    
+  useEffect(() => {
+    setError('')
+  },[])
+
     const navigate = useNavigate()
 
     const handleNotaSelected = (event) => {
@@ -26,10 +31,6 @@ window.history.pushState(null, "", window.location.href);
     const handleclick = () =>{
         if(!nota){
           setError('Preencha o campo!')
-          setTimeout(() => {
-           setError('')
-           return
-          }, 3000);
         }else{
            window.scrollTo({top: 0});
           feedbacks.push(nota)

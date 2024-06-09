@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Logo from '../../components/Logo/Logo'
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
@@ -20,15 +20,16 @@ window.history.pushState(null, "", window.location.href);
 
   const {setError, feedbacks, setFeedbacks} = useContext(Context)
 
+  
+  useEffect(() => {
+    setError('')
+  },[])
+
 
 
   const handleclick = () =>{
     if (input.length === 0) {
       setError('Preencha o campo!');
-      setTimeout(() => {
-        setError('');
-      }, 3000);
-      return;
     }
     window.scrollTo({top: 0});
     feedbacks.push(input)

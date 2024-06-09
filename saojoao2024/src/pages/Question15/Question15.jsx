@@ -40,6 +40,11 @@ useEffect(() => {
     const navigate = useNavigate()
     const {setError, feedbacks, setFeedbacks} = useContext(Context)
 
+    
+  useEffect(() => {
+    setError('')
+  },[])
+
     const handleOptionSelected = (event) =>{
         setOption(event)
     }
@@ -47,10 +52,6 @@ useEffect(() => {
     const handleclick = () =>{
       if (!option) {
         setError('Preencha o campo!');
-        setTimeout(() => {
-          setError('');
-        }, 3000);
-        return;
       }else{
         window.scrollTo({top: 0});
         feedbacks.push(option)

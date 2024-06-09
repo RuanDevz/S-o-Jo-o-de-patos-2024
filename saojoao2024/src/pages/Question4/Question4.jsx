@@ -1,4 +1,4 @@
-import React, { useContext, useState, } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
@@ -17,13 +17,13 @@ window.history.pushState(null, "", window.location.href);
 };
 
   const {error, setError, feedbacks, setFeedbacks} = useContext(Context)
+  useEffect(() => {
+    setError('')
+  },[])
 
   const handleclick = () =>{
     if(!gender){
       setError('Preencha seu gênero')
-      setTimeout(() => {
-        setError('')
-      }, 3000);
       return
     }
 

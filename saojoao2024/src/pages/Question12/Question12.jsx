@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react'
+import React,{useContext, useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
@@ -22,14 +22,15 @@ window.history.pushState(null, "", window.location.href);
     };
   
     const {setError, feedbacks, setFeedbacks} = useContext(Context)
+
+    
+  useEffect(() => {
+    setError('')
+  },[])
   
     const handleclick = () =>{
       if(!option){
         setError('Preencha o campo!')
-        setTimeout(() => {
-         setError('')
-         return
-        }, 3000);
       }else{
         window.scrollTo({top: 0});
         feedbacks.push(option)

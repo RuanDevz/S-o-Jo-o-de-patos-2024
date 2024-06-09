@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Logo from '../../components/Logo/Logo'
 import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
@@ -9,10 +9,15 @@ import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona'
 
 const Question1 = () => {
 
+
   const navigate = useNavigate()
 
   const [input, setInput] = useState('')
   const {setError, error, feedbacks, setFeedbacks} = useContext(Context)
+
+  useEffect(() => {
+    setError('')
+  },[])
   
 
   window.history.pushState(null, "", window.location.href);
@@ -27,9 +32,6 @@ const Question1 = () => {
   const handleClick = () => {
     if (input.length === 0) {
       setError('Preencha o campo!');
-      setTimeout(() => {
-        setError('');
-      }, 3000);
       return;
     }
 

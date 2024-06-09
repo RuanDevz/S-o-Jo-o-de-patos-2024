@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Logo from '../../components/Logo/Logo'
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom'
 import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona'
 
 const Question2 = () => {
+  useEffect(() => {
+    setError('')
+},[])
 
   window.history.pushState(null, "", window.location.href);
 window.onpopstate = function () {
@@ -25,9 +28,6 @@ window.history.pushState(null, "", window.location.href);
   const handleClick = () => {
     if (input.length === 0) {
       setError('Preencha o campo!');
-      setTimeout(() => {
-        setError('');
-      }, 3000);
       return;
     }
     

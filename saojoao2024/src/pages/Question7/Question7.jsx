@@ -40,6 +40,10 @@ window.history.pushState(null, "", window.location.href);
     const [option, setOption] = useState('')
 
     const {setError, error, feedbacks, setFeedbacks} = useContext(Context)
+    
+  useEffect(() => {
+    setError('')
+  },[])
 
     const handleOptionSelected = (e) =>{
         setOption(e)
@@ -48,10 +52,6 @@ window.history.pushState(null, "", window.location.href);
     const handleclick = () =>{
       if(!option){
         setError('Preencha o campo!')
-        setTimeout(() => {
-          setError('')
-          return
-        }, 3000);
       }else{
         window.scrollTo({top: 0});
         feedbacks.push(option)

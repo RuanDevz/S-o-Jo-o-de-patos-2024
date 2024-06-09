@@ -20,12 +20,13 @@ window.history.pushState(null, "", window.location.href);
 
   const {error, setError,feedbacks, setFeedbacks} = useContext(Context)
 
+  useEffect(() => {
+    setError('')
+  },[])
+
   const handleclick = () =>{
     if(ageGroup === ''){
       setError('Selecione uma faixa etária')
-      setTimeout(() => {
-        setError('')
-      }, 3000);
       return
     }
 
