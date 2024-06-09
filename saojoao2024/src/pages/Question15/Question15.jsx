@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Logo from '../../components/Logo/Logo';
 import InputCheck from '../../components/Input/InputCheck';
 import Button from '../../components/Button/Button';
@@ -8,13 +8,32 @@ import Error from '../../components/Error/Error';
 import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
 
 const Question15 = () => {
-  
-  const [zoom, setZoom] = useState(0.8)
 
-  window.history.pushState(null, "", window.location.href);
+window.history.pushState(null, "", window.location.href);
 window.onpopstate = function () {
 window.history.pushState(null, "", window.location.href);
 };
+
+const [zoom, setZoom] = useState(null)
+
+useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setZoom(0.76);
+    } else if(window.innerHeight < 1024) {
+      setZoom(0.9); 
+    }else{
+      setZoom(1)
+    }
+  };
+
+  handleResize(); 
+  window.addEventListener('resize', handleResize);
+
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []); 
 
 
     const [option, setOption] = useState('')
@@ -43,12 +62,12 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div style={{zoom: zoom}}>
-       <header className='flex justify-center items-center mt-5'>
+       <header className='flex justify-center items-center mt-5 lg:mt-10 2xl:mt-32 2xl:pb-12'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-center py-2 text-2xl'>O que você mais gostou ?</h1>
-      <main className='flex justify-center items-center font-rockwell'>
-        <section className=''>
+      <main className='flex justify-center items-center font-rockwell flex-col gap-0 lg:flex-row lg:justify-center lg:gap-20 mx-1 lg:text-2xl'>
+      <h1 className='text-white font-bold text-center py-2 text-2xl lg:text-5xl lg:max-w-text5 lg:leading-normal	'>Quais foram as atrações que você mais gostou?</h1>
+        <section className='ml-fixed lg:flex flex-col '>
           <div>
             <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="NATTAN">
               <InputCheck
@@ -118,7 +137,10 @@ window.history.pushState(null, "", window.location.href);
                 checked={option === 'A VONTADE'}
                 onChange={() => handleOptionSelected('A VONTADE')}
               />
-              <span>A VONTADE (RAÍ, LUAN E ZEZO)</span>
+              <div className='flex flex-row lg:flex lg:flex-col'>
+              <span className=''>A VONTADE</span>
+              <span>(RAÍ, LUAN E ZEZO)</span>
+              </div>
             </label>
           </div>
           <div>
@@ -133,7 +155,9 @@ window.history.pushState(null, "", window.location.href);
               <span>HENRY FREITAS</span>
             </label>
           </div>
-          <div>
+        </section>
+        <section className=''>
+        <div>
             <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ZEVAQUEIRO">
               <InputCheck
                 type='checkbox'
@@ -207,7 +231,7 @@ window.history.pushState(null, "", window.location.href);
           </div>
         </section>
       </main>
-      <div className='flex justify-center items-center mt-2'>
+      <div className='flex justify-center items-center mt-2 lg:mt-12'>
         <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>

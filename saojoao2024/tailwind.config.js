@@ -19,6 +19,15 @@ export default {
       maxWidth:{
         desktop: '800px',
         text: '540px',
+        text2: '270px',
+        text3: '500px',
+        text4: '480px',
+        text5: '550px',
+        desktoptela: '1100px'
+      },
+      margin:{
+        fix: '160px',
+        fixed: '117px'
       }
     },
   },

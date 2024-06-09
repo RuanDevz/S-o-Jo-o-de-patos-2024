@@ -4,7 +4,7 @@ import logo from '../../assets/LogoSaoJoao/Logosaojoao.png'
 const Logo = () => {
   return (
     <div>
-        <img src={logo} alt="logo" />
+        <img className='2xl:w-28' src={logo} alt="logo" />
     </div>
   )
 }

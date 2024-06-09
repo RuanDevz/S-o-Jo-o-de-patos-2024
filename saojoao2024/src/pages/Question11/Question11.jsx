@@ -41,12 +41,12 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div>
-       <header className='flex justify-center items-center mt-10'>
+       <header className='flex justify-center items-center mt-10 lg:pb-5 2xl:mt-32'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-2xl text-center pt-4'>Sobre suas intenções de volta:</h1>
-      <main className='flex justify-center items-center font-rockwell'>
-        <section className=''>
+      <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-40'>
+      <h1 className='text-white font-bold  text-2xl  text-center pt-4 lg:text-5xl max-w-text2 lg:leading-normal'>Sobre suas intenções de volta:</h1>
+        <section className='lg:text-3xl'>
         <div>
             <label className='flex items-center gap-5 my-10 text-white font-bold' 
             htmlFor="COMCERTEZAVOLTO">
@@ -98,7 +98,7 @@ window.history.pushState(null, "", window.location.href);
           </div>
         </section>
       </main>
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center lg:mt-20'>
       <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>

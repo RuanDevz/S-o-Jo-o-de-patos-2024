@@ -43,15 +43,15 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div>
-       <header className='flex justify-center items-center mt-5'>
+       <header className='flex justify-center items-center mt-5 2xl:mt-32'>
         <Logo/>
       </header>
-      <div className='flex justify-center items-center'>
-      <h1 className='text-white font-bold text-center text-base py-2 max-w-80'>Sobre a segurança do evento qual o seu grau de satisfação?</h1>
+      <main className='flex justify-center flex-col items-center gap-0 font-rockwell lg:flex-row lg:gap-40'>
+      <div className='flex justify-center flex-col items-center'>
+      <h1 className='text-white font-bold text-center text-base py-2 max-w-80 lg:text-5xl lg:max-w-text3 lg:leading-normal'>Sobre a segurança do evento qual o seu grau de satisfação?</h1>
+      <p className='text-xs text-center lg:mt-5 lg:text-xl'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
       </div>
-      <p className='text-xs text-center'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
-      <main className='flex justify-center items-center font-rockwell'>
-        <section className=''>
+        <section className='lg:text-3xl'>
           <div>
             <label className='flex items-center gap-5 my-10 text-white font-bold' htmlFor="one">
               <InputCheck

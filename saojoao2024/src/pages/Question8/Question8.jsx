@@ -62,7 +62,7 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div style={{zoom: zoom}} className='font-rockwell'>
-        <header className='flex justify-center items-center mt-5'>
+        <header className='flex justify-center items-center mt-5 2xl:mt-32'>
         <Logo/>
       </header>
       <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-40'>

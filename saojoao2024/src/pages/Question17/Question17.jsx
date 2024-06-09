@@ -56,8 +56,8 @@ window.history.pushState(null, "", window.location.href);
       </header>
       <main className='flex justify-center items-center flex-col text-center '>
         <form>
-          <h1 className='text-white text-2xl font-bold py-10'>Nome (opcional)</h1>
-          <Input onChange={(e) => setInput(e.target.value)} type='text' placeholder='Digite aqui...' value={input}/>
+          <h1 className='text-white text-2xl font-bold py-10 lg:text-4xl'>Nome (opcional)</h1>
+          <Input onChange={(e) => setInput(e.target.value.toUpperCase())} type='text' placeholder='Digite aqui...' value={input}/>
           <div className='mt-20'>
             <Button onClick={handlefinish}>FINALIZAR</Button>
           </div>

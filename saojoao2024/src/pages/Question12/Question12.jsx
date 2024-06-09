@@ -42,12 +42,12 @@ window.history.pushState(null, "", window.location.href);
 
   return (
     <div>
-            <header className='flex justify-center items-center mt-5'>
+            <header className='flex justify-center items-center mt-5 2xl:mt-32'>
         <Logo/>
       </header>
-      <h1 className='text-white font-bold text-2xl text-center pt-3'>Sobre suas expectativas em relação ao São João</h1>
-      <main className='flex justify-center items-center font-rockwell'>
-        <section className=''>
+      <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-32'>
+      <h1 className='text-white font-bold text-2xl text-center pt-3 lg:text-5xl lg:leading-normal lg:max-w-72'>Sobre suas expectativas em relação ao São João</h1>
+        <section className='lg:text-3xl'>
         <div>
             <label className='flex items-center gap-5 my-10 text-white font-bold' 
             htmlFor="SUPEROUASEXPECTATIVAS">
@@ -111,7 +111,7 @@ window.history.pushState(null, "", window.location.href);
           </div>
         </section>
       </main>
-      <div className='flex justify-center items-center'>
+    <div className='flex justify-center items-center lg:mt-12'>
       <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>
