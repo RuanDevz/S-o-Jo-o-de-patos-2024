@@ -53,7 +53,7 @@ window.history.pushState(null, "", window.location.href);
             <h1 className='text-white text-2xl font-bold py-10 lg:text-4xl lg:max-w-text4'>Quais foram os pontos mais positivos do evento?</h1>
             <Input onChange={handleChange} type='text' placeholder='Digite aqui...'/>
             <div className='mt-20'>
-            <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
+            <Button onClick={handleclick}>PRÓXIMA PERGUNTA &gt;&gt;&gt;</Button>
             </div>
             <div className='flex justify-center items-center'>
               <Error/>

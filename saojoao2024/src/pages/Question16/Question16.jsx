@@ -46,10 +46,10 @@ window.history.pushState(null, "", window.location.href);
             <Logo/>
         </header>
         <main className='flex justify-center items-center flex-col text-center '>
-            <h1 className='text-white text-2xl font-bold py-10 lg:text-4xl max-w-text4'>Algum feedback geral sobre o evento?</h1>
+            <h1 className='text-white text-2xl font-bold py-10 lg:text-4xl max-w-text4 text-center'>Algum feedback geral sobre o evento?</h1>
             <Input maxLength='40' onChange={(e) => setInput(e.target.value.toUpperCase())} type='text' placeholder='Digite aqui...'/>
             <div className='mt-20'>
-            <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
+            <Button onClick={handleclick}>PRÓXIMA PERGUNTA &gt;&gt;&gt;</Button>
             </div>
             <div className='flex justify-center items-center'>
               <Error/>

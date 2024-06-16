@@ -123,7 +123,7 @@ window.history.pushState(null, "", window.location.href);
         </section>
       </main>
       <div className='flex justify-center items-center lg:mt-20'>
-      <Button onClick={handleclick}>PROXIMA PERGUNTA &gt;&gt;&gt;</Button>
+      <Button onClick={handleclick}>PRÓXIMA PERGUNTA &gt;&gt;&gt;</Button>
       </div>
       <div className='flex justify-center items-center'>
         <Error/>

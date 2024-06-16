@@ -53,7 +53,7 @@ window.history.pushState(null, "", window.location.href);
             <h1 className='text-white text-2xl font-bold py-10 lg:text-4xl'>Qual a sua cidade?</h1>
             <Input onChange={handleChange} value={input} type='text' placeholder='Digite aqui...'/>
             <div className='mt-20'>
-            <Button onClick={handleClick}>PROXIMA PERGUNTA &gt;&gt;&gt; </Button>
+            <Button onClick={handleClick}>PRÓXIMA PERGUNTA &gt;&gt;&gt; </Button>
             <div className='flex justify-center items-center'>
               <Error/>
             </div>
