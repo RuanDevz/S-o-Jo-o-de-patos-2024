@@ -18,8 +18,6 @@ window.history.pushState(null, "", window.location.href);
   const navigate = useNavigate()
   const {feedbacks, setFeedbacks} = useContext(Context)
 
-  const [allfeedbacks, setAllfeedbacks] = useState({})
-
   const handlefinish = async (e) => {
     e.preventDefault();
 
@@ -32,7 +30,7 @@ window.history.pushState(null, "", window.location.href);
       console.log(feedbacks)
       navigate('/finish');
 
-      const response = await fetch('https://api.sheetmonkey.io/form/baNDLsj3CDPbUuaznPCuL1', {
+      const response = await fetch('https://api.sheetmonkey.io/form/94oa8cNPifMgfRZpAgqdj', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +53,7 @@ window.history.pushState(null, "", window.location.href);
         <Logo/>
       </header>
       <main className='flex justify-center items-center flex-col text-center '>
-        <form>
+        <form action='https://api.sheetmonkey.io/form/94oa8cNPifMgfRZpAgqdj'>
           <h1 className='text-white text-2xl font-bold py-10 lg:text-4xl'>Nome (opcional)</h1>
           <Input onChange={(e) => setInput(e.target.value.toUpperCase())} type='text' placeholder='Digite aqui...' value={input}/>
           <div className='mt-20'>

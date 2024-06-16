@@ -23,6 +23,7 @@ export default {
         text3: '500px',
         text4: '480px',
         text5: '550px',
+        text6: '330px',
         desktoptela: '1100px'
       },
       margin:{
