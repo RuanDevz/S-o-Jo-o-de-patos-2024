@@ -47,7 +47,7 @@ window.history.pushState(null, "", window.location.href);
             </header>
             <main className='flex justify-center items-center flex-col gap-0 font-rockwell lg:flex-row lg:gap-40'>
                 <div className='flex flex-col justify-center items-center'>
-                <h1 className='text-white font-bold text-center text-base py-2 lg:text-5xl lg:max-w-text'>Você ficou satisfeito com a organização do evento ?</h1>
+                <h1 className='text-white font-bold text-center text-2xl  py-2 lg:text-5xl lg:max-w-text'>Você ficou satisfeito com a organização do evento ?</h1>
                 <p className='text-xs text-center lg:text-lg lg:mt-3'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
                 </div>
                 <section className='lg:text-3xl'>
