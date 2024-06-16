@@ -45,7 +45,7 @@ window.history.pushState(null, "", window.location.href);
       </header>
       <main className='flex justify-center items-center flex-col text-base gap-0 font-rockwell lg:flex-row lg:gap-20 lg:text-3xl'>
       <div className='flex justify-center items-center flex-col'>
-      <h1 className='text-white font-bold text-2xl  text-center text-base pb-0 py-3 max-w-80 lg:text-5xl lg:max-w-text lg:pb-5'>De 1 a 5 quanto você ficou satisfeito com o São João de Patos 2024</h1>
+      <h1 className='text-white font-bold text-2xl  text-center pb-0 py-3 max-w-text2 pb-4 lg:text-5xl lg:max-w-text lg:pb-5'>De 1 a 5 quanto você ficou satisfeito com o São João de Patos 2024</h1>
       <p className='text-xs text-center lg:text-xl'><span className='text-Ocean font-bold'>1 PARA POUCO SATISFEITO</span><span className='text-Orange font-bold'> 5 PARA MUITO SATISFEITO</span></p>
       </div>
         <section className=''>

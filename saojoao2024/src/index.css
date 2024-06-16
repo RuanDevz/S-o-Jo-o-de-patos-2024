@@ -14,6 +14,7 @@
 
 
 body{
-  overflow: hidden;
+  max-width: 100%;
+  overflow-x: hidden;
   background-image: url('./assets/Background/Background.png');
 }
