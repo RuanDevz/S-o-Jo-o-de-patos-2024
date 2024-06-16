@@ -62,13 +62,13 @@ useEffect(() => {
     }
 
   return (
-    <div style={{zoom: zoom}}>
+    <div>
        <header className='flex justify-center items-center mt-5 lg:mt-10 2xl:mt-32 2xl:pb-12'>
         <Logo/>
       </header>
       <main className='flex justify-center items-center font-rockwell flex-col gap-0 lg:flex-row lg:justify-center lg:gap-20 mx-1 lg:text-2xl'>
-      <h1 className='text-white font-bold text-center py-2 text-2xl lg:text-5xl lg:max-w-text5 lg:leading-normal	'>Quais foram as atrações que você mais gostou?</h1>
-        <section className='ml-fixed lg:flex flex-col '>
+      <h1 className='text-white font-bold text-center py-2 pb-4 text-2xl lg:text-5xl lg:max-w-text5 lg:leading-normal	'>Quais foram as atrações que você mais gostou?</h1>
+        <section className='my-1 flex flex-col gap-7 lg:flex lg:gap-0 lg:flex-col '>
           <div>
             <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="NATTAN">
               <InputCheck
@@ -94,140 +94,39 @@ useEffect(() => {
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="GUSTAVO LIMA">
+            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="CALCINHA PRETA">
               <InputCheck
                 type='checkbox'
-                id='GUSTAVO LIMA'
-                value='GUSTAVO LIMA'
-                checked={option === 'GUSTAVO LIMA'}
-                onChange={() => handleOptionSelected('GUSTAVO LIMA')}
+                id='CALCINHA PRETA'
+                value='CALCINHA PRETA'
+                checked={option === 'CALCINHA PRETA'}
+                onChange={() => handleOptionSelected('CALCINHA PRETA')}
               />
-              <span>GUSTAVO LIMA</span>
+              <span>CALCINHA PRETA</span>
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="BELL MARQUES">
+            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ISABELA FERNANDES">
               <InputCheck
                 type='checkbox'
-                id='BELL MARQUES'
-                value='BELL MARQUES'
-                checked={option === '4BELL MARQUES'}
-                onChange={() => handleOptionSelected('4BELL MARQUES')}
+                id='ISABELA FERNANDES'
+                value='ISABELA FERNANDES'
+                checked={option === 'ISABELA FERNANDES'}
+                onChange={() => handleOptionSelected('ISABELA FERNANDES')}
               />
-              <span>BELL MARQUES</span>
+              <span>ISABELA FERNANDES</span>
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="MICHELLE ANDRADE">
+            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="CICINHO LIMA">
               <InputCheck
                 type='checkbox'
-                id='MICHELLE ANDRADE'
-                value='MICHELLE ANDRADE'
-                checked={option === 'MICHELLE ANDRADE'}
-                onChange={() => handleOptionSelected('MICHELLE ANDRADE')}
+                id='CICINHO LIMA'
+                value='CICINHO LIMA'
+                checked={option === 'CICINHO LIMA'}
+                onChange={() => handleOptionSelected('CICINHO LIMA')}
               />
-              <span>MICHELLE ANDRADE</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="A VONTADE">
-              <InputCheck
-                type='checkbox'
-                id='A VONTADE'
-                value='A VONTADE'
-                checked={option === 'A VONTADE'}
-                onChange={() => handleOptionSelected('A VONTADE')}
-              />
-              <div className='flex flex-row lg:flex lg:flex-col'>
-              <span className=''>A VONTADE</span>
-              <span>(RAÍ, LUAN E ZEZO)</span>
-              </div>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="HENRY FREITAS">
-              <InputCheck
-                type='checkbox'
-                id='HENRY FREITAS'
-                value='HENRY FREITAS'
-                checked={option === 'HENRY FREITAS'}
-                onChange={() => handleOptionSelected('HENRY FREITAS')}
-              />
-              <span>HENRY FREITAS</span>
-            </label>
-          </div>
-        </section>
-        <section className=''>
-        <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ZEVAQUEIRO">
-              <InputCheck
-                type='checkbox'
-                id='ZEVAQUEIRO'
-                value='ZÉ VAQUEIRO'
-                checked={option === 'ZÉ VAQUEIRO'}
-                onChange={() => handleOptionSelected('ZÉ VAQUEIRO')}
-              />
-              <span>ZÉ VAQUEIRO</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="SIMONE MENDES">
-              <InputCheck
-                type='checkbox'
-                id='SIMONE MENDES'
-                value='SIMONE MENDES'
-                checked={option === 'SIMONE MENDES'}
-                onChange={() => handleOptionSelected('SIMONE MENDES')}
-              />
-              <span>SIMONE MENDES</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="FELIPE AMORIM">
-              <InputCheck
-                type='checkbox'
-                id='FELIPE AMORIM'
-                value='FELIPE AMORIM'
-                checked={option === 'FELIPE AMORIM'}
-                onChange={() => handleOptionSelected('FELIPE AMORIM')}
-              />
-              <span>FELIPE AMORIM</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="FELIPEAMORIM">
-              <InputCheck
-                type='checkbox'
-                id='FELIPEAMORIM'
-                value='BIZAY'
-                checked={option === 'BIZAY'}
-                onChange={() => handleOptionSelected('BIZAY')}
-              />
-              <span>BIZAY</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="DENNIS DJ">
-              <InputCheck
-                type='checkbox'
-                id='DENNIS DJ'
-                value='DENNIS DJ'
-                checked={option === 'DENNIS DJ'}
-                onChange={() => handleOptionSelected('DENNIS DJ')}
-              />
-              <span>DENNIS DJ</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor="ZECANTOR">
-              <InputCheck
-                type='checkbox'
-                id='ZECANTOR'
-                value='ZÉ CANTOR'
-                checked={option === 'ZÉ CANTOR'}
-                onChange={() => handleOptionSelected('ZÉ CANTOR')}
-              />
-              <span>ZÉ CANTOR</span>
+              <span>CICINHO LIMA</span>
             </label>
           </div>
         </section>

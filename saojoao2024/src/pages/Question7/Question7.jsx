@@ -14,7 +14,7 @@ const Question7 = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setZoom(0.76);
+        setZoom(0.9);
       } else if(window.innerHeight < 1024) {
         setZoom(0.89); 
       }else{
