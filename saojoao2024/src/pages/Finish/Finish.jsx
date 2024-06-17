@@ -4,7 +4,9 @@ import Sol from '../../components/Sol/Sol'
 
 const Finish = () => {
 
-
+setTimeout(() => {
+  window.location.href= '/'
+}, 5000);
 
   return (
     <div>

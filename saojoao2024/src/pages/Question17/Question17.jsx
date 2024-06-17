@@ -30,7 +30,7 @@ window.history.pushState(null, "", window.location.href);
       console.log(feedbacks)
       navigate('/finish');
 
-      const response = await fetch('https://api.sheetmonkey.io/form/94oa8cNPifMgfRZpAgqdj', {
+      const response = await fetch('https://api.sheetmonkey.io/form/nMwh3yyvPgKcN1cd8A5XfG', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ window.history.pushState(null, "", window.location.href);
         <Logo/>
       </header>
       <main className='flex justify-center items-center flex-col text-center '>
-        <form action='https://api.sheetmonkey.io/form/94oa8cNPifMgfRZpAgqdj'>
+        <form action='https://api.sheetmonkey.io/form/nMwh3yyvPgKcN1cd8A5XfG'>
           <h1 className='text-white text-2xl font-bold py-10 lg:text-4xl'>Nome (opcional)</h1>
           <Input onChange={(e) => setInput(e.target.value.toUpperCase())} type='text' placeholder='Digite aqui...' value={input}/>
           <div className='mt-20'>
