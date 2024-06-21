@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Context from '../../Context/Context';
 import Error from '../../components/Error/Error';
 import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
+import './styles.css'
 
 const Question15 = () => {
   // Reset history state to prevent back navigation
@@ -65,7 +66,7 @@ const Question15 = () => {
   };
 
   return (
-    <div>
+    <div style={{zoom: zoom}}>
       <header className='flex justify-center items-center mt-5 lg:mt-10 2xl:mt-32 2xl:pb-12'>
         <Logo />
       </header>
@@ -73,9 +74,9 @@ const Question15 = () => {
         <h1 className='text-white font-bold text-center py-2 pb-4 text-2xl lg:text-5xl lg:max-w-text5 lg:leading-normal'>
           Quais foram as atrações que você mais gostou?
         </h1>
-        <section className='my-1 flex flex-col gap-7 lg:flex lg:gap-0 lg:flex-col '>
+        <section className='flex flex-col  lg:flex lg:gap-0 lg:flex-col '>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor='NATTAN'>
+            <label className='flex items-center  text-white font-bold' htmlFor='NATTAN'>
               <InputCheck
                 type='checkbox'
                 id='NATTAN'
@@ -87,7 +88,7 @@ const Question15 = () => {
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor='XAND AVIÃO'>
+            <label className='flex items-center  text-white font-bold' htmlFor='XAND AVIÃO'>
               <InputCheck
                 type='checkbox'
                 id='XAND AVIÃO'
@@ -99,7 +100,7 @@ const Question15 = () => {
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor='CALCINHA PRETA'>
+            <label className='flex items-center  text-white font-bold' htmlFor='CALCINHA PRETA'>
               <InputCheck
                 type='checkbox'
                 id='CALCINHA PRETA'
@@ -111,7 +112,7 @@ const Question15 = () => {
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor='ISABELA FERNANDES'>
+            <label className='flex items-center  text-white font-bold' htmlFor='ISABELA FERNANDES'>
               <InputCheck
                 type='checkbox'
                 id='ISABELA FERNANDES'
@@ -123,7 +124,7 @@ const Question15 = () => {
             </label>
           </div>
           <div>
-            <label className='flex items-center gap-5 my-3 text-white font-bold' htmlFor='CICINHO LIMA'>
+            <label className='flex items-center  text-white font-bold' htmlFor='CICINHO LIMA'>
               <InputCheck
                 type='checkbox'
                 id='CICINHO LIMA'
@@ -132,6 +133,68 @@ const Question15 = () => {
                 onChange={() => handleOptionSelected('CICINHO LIMA')}
               />
               <span>CICINHO LIMA</span>
+            </label>
+          </div>
+        </section>
+        <section>
+        <div>
+            <label className='flex items-center my-5  text-white font-bold' htmlFor='GUSTTAVO LIMA'>
+              <InputCheck
+                type='checkbox'
+                id='GUSTTAVO LIMA'
+                value='GUSTTAVO LIMA'
+                checked={options.includes('GUSTTAVO LIMA')}
+                onChange={() => handleOptionSelected('GUSTTAVO LIMA')}
+              />
+              <span>GUSTTAVO LIMA</span>
+            </label>
+          </div>
+          <div>
+            <label className='flex items-center my-5  text-white font-bold' htmlFor='BELL MARQUES'>
+              <InputCheck
+                type='checkbox'
+                id='BELL MARQUES'
+                value='BELL MARQUES'
+                checked={options.includes('BELL MARQUES')}
+                onChange={() => handleOptionSelected('BELL MARQUES')}
+              />
+              <span>BELL MARQUES</span>
+            </label>
+          </div>
+          <div>
+            <label className='flex items-center my-5  text-white font-bold' htmlFor='MICHELE ANDRADE'>
+              <InputCheck
+                type='checkbox'
+                id='MICHELE ANDRADE'
+                value='MICHELE ANDRADE'
+                checked={options.includes('MICHELE ANDRADE')}
+                onChange={() => handleOptionSelected('MICHELE ANDRADE')}
+              />
+              <span>MICHELE ANDRADE</span>
+            </label>
+          </div>
+          <div>
+            <label className='flex items-center my-5  text-white font-bold' htmlFor='HANNY MENDONÇA'>
+              <InputCheck
+                type='checkbox'
+                id='HANNY MENDONÇA'
+                value='HANNY MENDONÇA'
+                checked={options.includes('HANNY MENDONÇA')}
+                onChange={() => handleOptionSelected('HANNY MENDONÇA')}
+              />
+              <span>HANNY MENDONÇA</span>
+            </label>
+          </div>
+          <div>
+            <label className='flex items-center my-5  text-white font-bold' htmlFor='RAFAEL DONO'>
+              <InputCheck
+                type='checkbox'
+                id='RAFAEL DONO'
+                value='RAFAEL DONO'
+                checked={options.includes('RAFAEL DONO')}
+                onChange={() => handleOptionSelected('RAFAEL DONO')}
+              />
+              <span>RAFAEL DONO</span>
             </label>
           </div>
         </section>
