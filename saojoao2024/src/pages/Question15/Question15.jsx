@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Context from '../../Context/Context';
 import Error from '../../components/Error/Error';
 import BalaoESanfona from '../../components/balaoesanfona/balaoesanfona';
-import './styles.css'
+import './styles.css';
 
 const Question15 = () => {
   // Reset history state to prevent back navigation
@@ -16,6 +16,9 @@ const Question15 = () => {
   };
 
   const [zoom, setZoom] = useState(null);
+  const [options, setOptions] = useState([]);
+  const { setError, feedbacks, setFeedbacks } = useContext(Context);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,13 +39,43 @@ const Question15 = () => {
     };
   }, []);
 
-  const { setError, feedbacks, setFeedbacks } = useContext(Context);
-
   useEffect(() => {
     setError('');
   }, []);
 
-  const [options, setOptions] = useState([]);
+  const cantores = [
+    'NATTAN',
+    'XAND AVIÃO',
+    'CALCINHA PRETA',
+    'ISABELA FERNANDES',
+    'CICINHO LIMA',
+    'GUSTTAVO LIMA',
+    'BELL MARQUES',
+    'MICHELE ANDRADE',
+    'HANNY MENDONÇA',
+    'RAFAEL DONO'
+  ];
+
+  const cantore2 = [
+    'À VONTADE (LUAN - RAÍ - ZEZO)',
+    'HENRY FREITAS',
+    'ZE VAQUEIRO',
+    'SANARA',
+    'GUSTAVINHO',
+    'SIMONE MENDES',
+    'FELIPE AMORIM',
+    'BIZAY',
+    'MARKITO',
+    'HÊNIO BARÃO'
+  ];
+
+  const cantore3 = [
+    'LEONARDO',
+    'GUSTAVO MIOTO',
+    'DENNIS DJ',
+    'ZÉ CANTOR',
+    'HUDSHOW'
+  ];
 
   const handleOptionSelected = (option) => {
     if (options.includes(option)) {
@@ -52,21 +85,19 @@ const Question15 = () => {
     }
   };
 
-  const navigate = useNavigate();
-
   const handleclick = () => {
     if (options.length === 0) {
       setError('Selecione pelo menos uma opção!');
     } else {
       window.scrollTo({ top: 0 });
       setFeedbacks(prevFeedbacks => [...prevFeedbacks, ...options]);
-      console.log(feedbacks)
+      console.log(feedbacks);
       navigate('/question16');
     }
   };
 
   return (
-    <div style={{zoom: zoom}}>
+    <div style={{ zoom: zoom }}>
       <header className='flex justify-center items-center mt-5 lg:mt-10 2xl:mt-32 2xl:pb-12'>
         <Logo />
       </header>
@@ -75,128 +106,52 @@ const Question15 = () => {
           Quais foram as atrações que você mais gostou?
         </h1>
         <section className='flex flex-col  lg:flex lg:gap-0 lg:flex-col '>
-          <div>
-            <label className='flex items-center  text-white font-bold' htmlFor='NATTAN'>
-              <InputCheck
-                type='checkbox'
-                id='NATTAN'
-                value='NATTAN'
-                checked={options.includes('NATTAN')}
-                onChange={() => handleOptionSelected('NATTAN')}
-              />
-              <span>NATTAN</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center  text-white font-bold' htmlFor='XAND AVIÃO'>
-              <InputCheck
-                type='checkbox'
-                id='XAND AVIÃO'
-                value='XAND AVIÃO'
-                checked={options.includes('XAND AVIÃO')}
-                onChange={() => handleOptionSelected('XAND AVIÃO')}
-              />
-              <span>XAND AVIÃO</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center  text-white font-bold' htmlFor='CALCINHA PRETA'>
-              <InputCheck
-                type='checkbox'
-                id='CALCINHA PRETA'
-                value='CALCINHA PRETA'
-                checked={options.includes('CALCINHA PRETA')}
-                onChange={() => handleOptionSelected('CALCINHA PRETA')}
-              />
-              <span>CALCINHA PRETA</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center  text-white font-bold' htmlFor='ISABELA FERNANDES'>
-              <InputCheck
-                type='checkbox'
-                id='ISABELA FERNANDES'
-                value='ISABELA FERNANDES'
-                checked={options.includes('ISABELA FERNANDES')}
-                onChange={() => handleOptionSelected('ISABELA FERNANDES')}
-              />
-              <span>ISABELA FERNANDES</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center  text-white font-bold' htmlFor='CICINHO LIMA'>
-              <InputCheck
-                type='checkbox'
-                id='CICINHO LIMA'
-                value='CICINHO LIMA'
-                checked={options.includes('CICINHO LIMA')}
-                onChange={() => handleOptionSelected('CICINHO LIMA')}
-              />
-              <span>CICINHO LIMA</span>
-            </label>
-          </div>
+          {cantores.map((cantor, index) => (
+            <div key={index}>
+              <label className='flex items-center  text-white font-bold' htmlFor={cantor}>
+                <InputCheck
+                  type='checkbox'
+                  id={cantor}
+                  value={cantor}
+                  checked={options.includes(cantor)}
+                  onChange={() => handleOptionSelected(cantor)}
+                />
+                <span>{cantor}</span>
+              </label>
+            </div>
+          ))}
         </section>
-        <section>
-        <div>
-            <label className='flex items-center my-5  text-white font-bold' htmlFor='GUSTTAVO LIMA'>
-              <InputCheck
-                type='checkbox'
-                id='GUSTTAVO LIMA'
-                value='GUSTTAVO LIMA'
-                checked={options.includes('GUSTTAVO LIMA')}
-                onChange={() => handleOptionSelected('GUSTTAVO LIMA')}
-              />
-              <span>GUSTTAVO LIMA</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center my-5  text-white font-bold' htmlFor='BELL MARQUES'>
-              <InputCheck
-                type='checkbox'
-                id='BELL MARQUES'
-                value='BELL MARQUES'
-                checked={options.includes('BELL MARQUES')}
-                onChange={() => handleOptionSelected('BELL MARQUES')}
-              />
-              <span>BELL MARQUES</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center my-5  text-white font-bold' htmlFor='MICHELE ANDRADE'>
-              <InputCheck
-                type='checkbox'
-                id='MICHELE ANDRADE'
-                value='MICHELE ANDRADE'
-                checked={options.includes('MICHELE ANDRADE')}
-                onChange={() => handleOptionSelected('MICHELE ANDRADE')}
-              />
-              <span>MICHELE ANDRADE</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center my-5  text-white font-bold' htmlFor='HANNY MENDONÇA'>
-              <InputCheck
-                type='checkbox'
-                id='HANNY MENDONÇA'
-                value='HANNY MENDONÇA'
-                checked={options.includes('HANNY MENDONÇA')}
-                onChange={() => handleOptionSelected('HANNY MENDONÇA')}
-              />
-              <span>HANNY MENDONÇA</span>
-            </label>
-          </div>
-          <div>
-            <label className='flex items-center my-5  text-white font-bold' htmlFor='RAFAEL DONO'>
-              <InputCheck
-                type='checkbox'
-                id='RAFAEL DONO'
-                value='RAFAEL DONO'
-                checked={options.includes('RAFAEL DONO')}
-                onChange={() => handleOptionSelected('RAFAEL DONO')}
-              />
-              <span>RAFAEL DONO</span>
-            </label>
-          </div>
+        <section className='flex flex-col  lg:flex lg:gap-0 lg:flex-col'>
+          {cantore2.map((cant, index) => (
+            <div key={index}>
+              <label className='flex items-center ml-[90px]  text-white font-bold' htmlFor={cant}>
+                <InputCheck
+                  type='checkbox'
+                  id={cant}
+                  value={cant}
+                  checked={options.includes(cant)}
+                  onChange={() => handleOptionSelected(cant)}
+                />
+                <span>{cant}</span>
+              </label>
+            </div>
+          ))}
+        </section>
+        <section className='flex flex-col mr-[31px]  lg:flex lg:gap-0 lg:flex-col'>
+          {cantore3.map((cant3, index) => (
+            <div key={index}>
+              <label className='flex items-center  text-white font-bold' htmlFor={cant3}>
+                <InputCheck
+                  type='checkbox'
+                  id={cant3}
+                  value={cant3}
+                  checked={options.includes(cant3)}
+                  onChange={() => handleOptionSelected(cant3)}
+                />
+                <span>{cant3}</span>
+              </label>
+            </div>
+          ))}
         </section>
       </main>
       <div className='flex justify-center items-center mt-2 lg:mt-12'>
